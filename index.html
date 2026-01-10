@@ -2,29 +2,16 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buku Prestasi 6A</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Prestasi 6A</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #c0392b;
             --primary-light: #e74c3c;
-            --primary-dark: #922b21;
-            --primary-darker: #641e16;
-            --secondary: #f5b041;
-            --accent: #fadbd8;
-            --accent-light: #fdedec;
             --white: #ffffff;
-            --gray-light: #f8f9fa;
-            --gray: #7f8c8d;
-            --gray-dark: #5a6c7d;
-            --dark: #2c3e50;
-            --success: #27ae60;
-            --warning: #f39c12;
-            --info: #3498db;
-            --shadow: 0 4px 15px rgba(192, 57, 43, 0.2);
-            --shadow-lg: 0 10px 40px rgba(192, 57, 43, 0.3);
+            --gray: #f5f5f5;
+            --dark: #333;
         }
 
         * {
@@ -33,535 +20,579 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, var(--primary-darker) 0%, var(--primary) 50%, var(--primary-light) 100%);
-            min-height: 100vh;
-            color: var(--dark);
+        html, body {
+            height: 100%;
+            overflow: hidden;
         }
 
-        /* LOGIN PAGE */
-        .login-page {
-            min-height: 100vh;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 14px;
+            background: var(--gray);
+        }
+
+        /* LOGIN */
+        .login {
+            height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            background: linear-gradient(135deg, #922b21, #c0392b, #e74c3c);
+            padding: 15px;
         }
 
-        .login-header {
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--white);
-        }
-
-        .logo-wrapper {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 20px;
-        }
-
-        .logo-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+        .login img {
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
-            background: var(--white);
-            padding: 8px;
-            box-shadow: var(--shadow-lg);
-            animation: logoFloat 3s ease-in-out infinite, logoPulse 2s ease-in-out infinite;
+            background: #fff;
+            padding: 5px;
+            margin-bottom: 10px;
+            animation: pulse 2s infinite;
         }
 
-        @keyframes logoFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(3deg); }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
-        @keyframes logoPulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7), var(--shadow-lg); }
-            50% { box-shadow: 0 0 0 15px rgba(231, 76, 60, 0), var(--shadow-lg); }
+        .login h1 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 3px;
         }
 
-        .login-header h1 {
-            font-size: 1.7rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        .login p {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.7rem;
+            margin-bottom: 15px;
         }
 
-        .login-header h2 {
-            font-size: 1rem;
-            font-weight: 500;
-            opacity: 0.95;
-        }
-
-        .login-header p {
-            font-size: 0.85rem;
-            opacity: 0.85;
-            margin-top: 5px;
-        }
-
-        .login-card {
-            background: var(--white);
-            border-radius: 24px;
-            padding: 35px 28px;
+        .login-box {
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
             width: 100%;
-            max-width: 400px;
-            box-shadow: var(--shadow-lg);
+            max-width: 320px;
         }
 
-        .login-card h3 {
-            text-align: center;
-            color: var(--primary);
-            margin-bottom: 25px;
-            font-size: 1.15rem;
-        }
-
-        .login-option {
-            background: var(--accent-light);
-            border: 2px solid transparent;
-            border-radius: 14px;
-            padding: 16px;
-            margin-bottom: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .login-option:hover {
-            border-color: var(--primary-light);
-            transform: translateX(5px);
-        }
-
-        .login-option.active {
-            border-color: var(--primary);
-            background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%);
-        }
-
-        .login-option h4 {
-            color: var(--primary);
-            margin-bottom: 4px;
+        .login-opt {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.95rem;
+            gap: 8px;
+            margin-bottom: 10px;
         }
 
-        .login-option p {
+        .login-opt button {
+            flex: 1;
+            padding: 12px 8px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            background: #fff;
+            cursor: pointer;
             font-size: 0.75rem;
-            color: var(--gray);
-            margin-left: 28px;
+            font-weight: 600;
+            transition: all 0.2s;
         }
 
-        .password-box {
+        .login-opt button.active {
+            border-color: var(--primary);
+            background: #fef2f1;
+            color: var(--primary);
+        }
+
+        .login-opt button i {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .pwd-box {
             display: none;
-            margin-top: 15px;
-            animation: slideDown 0.3s ease;
+            margin-bottom: 10px;
         }
 
-        .password-box.show {
+        .pwd-box.show {
             display: block;
         }
 
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .input-group {
+        .pwd-box .inp {
             position: relative;
         }
 
-        .input-group input {
+        .pwd-box input {
             width: 100%;
-            padding: 14px 50px 14px 16px;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: all 0.3s ease;
+            padding: 10px 40px 10px 12px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-size: 0.9rem;
         }
 
-        .input-group input:focus {
+        .pwd-box input:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.1);
         }
 
-        .input-group .toggle-eye {
+        .pwd-box .eye {
             position: absolute;
-            right: 16px;
+            right: 12px;
             top: 50%;
             transform: translateY(-50%);
             cursor: pointer;
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-
-        .input-group .toggle-eye:hover {
-            color: var(--primary);
+            color: #999;
         }
 
         .btn {
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             border: none;
-            border-radius: 12px;
-            font-size: 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
             font-weight: 600;
-            font-family: inherit;
             cursor: pointer;
-            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: var(--white);
-            margin-top: 20px;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #fff;
         }
 
         .btn-primary:disabled {
             opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .btn-secondary {
-            background: var(--gray-light);
-            color: var(--dark);
-        }
-
-        .btn-danger {
-            background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
-            color: var(--white);
-        }
-
-        .btn-success {
-            background: linear-gradient(135deg, var(--success) 0%, #1e8449 100%);
-            color: var(--white);
         }
 
         /* DASHBOARD */
         .dashboard {
             display: none;
-            min-height: 100vh;
-            padding-bottom: 80px;
-            background: var(--gray-light);
+            height: 100%;
+            flex-direction: column;
         }
 
         .dashboard.active {
-            display: block;
+            display: flex;
         }
 
-        .dash-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: var(--white);
-            padding: 20px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: var(--shadow);
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #fff;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .dash-header .logo-sm {
-            width: 50px;
-            height: 50px;
+        .header img {
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
-            background: var(--white);
-            padding: 5px;
-            margin-bottom: 8px;
+            background: #fff;
+            padding: 2px;
         }
 
-        .dash-header h1 {
-            font-size: 1.15rem;
-            margin-bottom: 2px;
+        .header .info {
+            flex: 1;
         }
 
-        .dash-header p {
-            font-size: 0.7rem;
+        .header h1 {
+            font-size: 0.85rem;
+        }
+
+        .header p {
+            font-size: 0.6rem;
             opacity: 0.9;
         }
 
-        .user-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+        .header .user {
+            font-size: 0.65rem;
             background: rgba(255,255,255,0.2);
-            padding: 6px 14px;
-            border-radius: 20px;
-            margin-top: 10px;
-            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 12px;
         }
 
         /* TABS */
-        .tabs-nav {
+        .tabs {
             display: flex;
-            background: var(--white);
-            padding: 8px;
-            gap: 4px;
-            position: sticky;
-            top: 120px;
-            z-index: 99;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            overflow-x: auto;
+            background: #fff;
+            border-bottom: 1px solid #eee;
         }
 
-        .tab-btn {
+        .tabs button {
             flex: 1;
-            min-width: 70px;
-            padding: 10px 6px;
+            padding: 8px 4px;
             border: none;
-            background: var(--gray-light);
-            border-radius: 10px;
-            font-size: 0.68rem;
-            font-weight: 500;
-            font-family: inherit;
+            background: none;
+            font-size: 0.65rem;
+            color: #666;
             cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            color: var(--gray-dark);
+            border-bottom: 2px solid transparent;
         }
 
-        .tab-btn i {
-            font-size: 1.1rem;
+        .tabs button i {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 2px;
         }
 
-        .tab-btn.active {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: var(--white);
-            box-shadow: var(--shadow);
+        .tabs button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
         }
 
-        .tab-content {
+        /* CONTENT */
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .tab-panel {
             display: none;
-            padding: 15px;
-            animation: fadeIn 0.3s ease;
         }
 
-        .tab-content.active {
+        .tab-panel.active {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* FORM */
+        .form-row {
+            margin-bottom: 8px;
         }
 
-        /* CARDS */
-        .card {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 18px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-        }
-
-        .card-title {
-            color: var(--primary);
-            font-size: 0.95rem;
+        .form-row label {
+            display: block;
+            font-size: 0.7rem;
             font-weight: 600;
-            margin-bottom: 15px;
+            color: #555;
+            margin-bottom: 4px;
+        }
+
+        .form-row select,
+        .form-row input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            background: #fff;
+        }
+
+        .form-row select:focus,
+        .form-row input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .ayat-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .ayat-row input {
+            flex: 1;
+        }
+
+        .ayat-row span {
+            color: #999;
+        }
+
+        /* PREDIKAT */
+        .predikat-row {
+            display: flex;
+            gap: 6px;
+        }
+
+        .pred-btn {
+            flex: 1;
+            padding: 10px 4px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            background: #fff;
+            cursor: pointer;
+            text-align: center;
+            font-size: 0.65rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .pred-btn i {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 2px;
+        }
+
+        .pred-btn.selected {
+            border-color: var(--primary);
+            background: #fef2f1;
+        }
+
+        .pred-btn.p1 i { color: #f1c40f; }
+        .pred-btn.p2 i { color: #27ae60; }
+        .pred-btn.p3 i { color: #3498db; }
+        .pred-btn.p4 i { color: #e74c3c; }
+
+        /* NOTICE */
+        .notice {
+            background: #fff3cd;
+            padding: 8px 10px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            color: #856404;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        /* TARGET */
-        .target-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-
-        .target-item {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: var(--white);
-            padding: 14px 8px;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .target-item h4 {
-            font-size: 0.8rem;
-            margin-bottom: 2px;
-        }
-
-        .target-item p {
-            font-size: 0.65rem;
-            opacity: 0.9;
-        }
-
-        /* FORM */
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            font-size: 0.85rem;
-            color: var(--dark);
-        }
-
-        .form-group label i {
-            color: var(--primary);
-            margin-right: 6px;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 14px;
-            border: 2px solid #e8e8e8;
-            border-radius: 10px;
-            font-size: 0.9rem;
-            font-family: inherit;
-            transition: all 0.3s ease;
-            background: var(--white);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.1);
-        }
-
-        .ayat-range {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .ayat-range input {
-            flex: 1;
-        }
-
-        .ayat-range span {
-            color: var(--gray);
-            font-weight: 500;
-        }
-
-        /* PREDIKAT */
-        .predikat-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-
-        .predikat-item {
-            padding: 14px;
-            border: 2px solid #e8e8e8;
-            border-radius: 12px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .predikat-item:hover {
-            border-color: var(--primary-light);
-            background: var(--accent-light);
-        }
-
-        .predikat-item.selected {
-            border-color: var(--primary);
-            background: var(--accent);
-        }
-
-        .predikat-item i {
-            font-size: 1.4rem;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .predikat-item span {
-            font-size: 0.78rem;
-            font-weight: 500;
-        }
-
-        .predikat-item.istimewa i { color: #f1c40f; }
-        .predikat-item.bagus i { color: #27ae60; }
-        .predikat-item.cukup i { color: #3498db; }
-        .predikat-item.mengulang i { color: #e74c3c; }
-
-        /* VIEW NOTICE */
-        .view-notice {
-            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
-            border: 1px solid #f39c12;
-            color: #856404;
-            padding: 12px 15px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.82rem;
-        }
-
-        .view-notice.hidden {
+        .notice.hide {
             display: none;
         }
 
-        /* RECORDING */
-        .record-box {
-            text-align: center;
-            padding: 25px 15px;
+        /* HISTORY */
+        .hist-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
         }
 
-        .record-btn {
-            width: 85px;
-            height: 85px;
+        .hist-head h3 {
+            font-size: 0.85rem;
+            color: var(--primary);
+        }
+
+        .hist-btns {
+            display: flex;
+            gap: 6px;
+        }
+
+        .hist-btns button {
+            width: 32px;
+            height: 32px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .hist-btns .ref { background: #3498db; }
+        .hist-btns .del { background: var(--primary); }
+
+        .hist-item {
+            background: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .hist-item .top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .hist-item .name {
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: var(--primary);
+        }
+
+        .hist-item .date {
+            font-size: 0.65rem;
+            color: #999;
+        }
+
+        .hist-item .detail {
+            font-size: 0.75rem;
+            color: #555;
+            margin-bottom: 6px;
+        }
+
+        .hist-item .bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .badge {
+            font-size: 0.65rem;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .badge.b1 { background: #fef9e7; color: #d4ac0d; }
+        .badge.b2 { background: #e8f8f5; color: #1e8449; }
+        .badge.b3 { background: #ebf5fb; color: #2874a6; }
+        .badge.b4 { background: #fdedec; color: #c0392b; }
+
+        .hist-item .del-btn {
+            background: none;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+        }
+
+        .empty i {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            opacity: 0.5;
+        }
+
+        /* STATS */
+        .stat-main {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #fff;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .stat-main h2 {
+            font-size: 2rem;
+        }
+
+        .stat-main p {
+            font-size: 0.75rem;
+            opacity: 0.9;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .stat-item {
+            background: #fff;
+            border-radius: 10px;
+            padding: 10px 5px;
+            text-align: center;
+        }
+
+        .stat-item i {
+            font-size: 1.2rem;
+        }
+
+        .stat-item h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        .stat-item span {
+            font-size: 0.6rem;
+            color: #999;
+        }
+
+        .prog-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 12px;
+        }
+
+        .prog-card h4 {
+            font-size: 0.8rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .prog-item {
+            margin-bottom: 10px;
+        }
+
+        .prog-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .prog-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            margin-bottom: 4px;
+        }
+
+        .prog-bar {
+            height: 8px;
+            background: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .prog-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        .f1 { background: linear-gradient(90deg, #e74c3c, #f39c12); }
+        .f2 { background: linear-gradient(90deg, #9b59b6, #e74c3c); }
+        .f3 { background: linear-gradient(90deg, #3498db, #1abc9c); }
+
+        /* BIMBINGAN */
+        .rec-box {
+            background: #fff;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .rec-box input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+        }
+
+        .rec-btn {
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             border: none;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: var(--white);
-            font-size: 1.8rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #fff;
+            font-size: 1.5rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-lg);
         }
 
-        .record-btn:hover {
-            transform: scale(1.05);
-        }
-
-        .record-btn.recording {
+        .rec-btn.recording {
             animation: recPulse 1s infinite;
         }
 
         @keyframes recPulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
-            50% { box-shadow: 0 0 0 20px rgba(231, 76, 60, 0); }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(192,57,43,0.7); }
+            50% { box-shadow: 0 0 0 15px rgba(192,57,43,0); }
         }
 
         .rec-status {
-            margin-top: 12px;
-            font-size: 0.85rem;
-            color: var(--gray);
+            margin-top: 8px;
+            font-size: 0.8rem;
+            color: #666;
         }
 
         .rec-timer {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 600;
             color: var(--primary);
-            margin-top: 8px;
         }
 
         .rec-preview {
-            margin-top: 20px;
             display: none;
+            margin-top: 12px;
         }
 
         .rec-preview.show {
@@ -570,368 +601,97 @@
 
         .rec-preview audio {
             width: 100%;
-            border-radius: 10px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .rec-list {
-            margin-top: 15px;
+            margin-top: 12px;
         }
 
         .rec-item {
-            background: var(--gray-light);
-            border-radius: 12px;
-            padding: 12px;
-            margin-bottom: 10px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
-        .rec-item .play-btn {
-            width: 40px;
-            height: 40px;
+        .rec-item .play {
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             border: none;
             background: var(--primary);
-            color: var(--white);
+            color: #fff;
             cursor: pointer;
-            flex-shrink: 0;
         }
 
         .rec-item .info {
             flex: 1;
-            min-width: 0;
         }
 
-        .rec-item .info h4 {
-            font-size: 0.82rem;
+        .rec-item .info h5 {
+            font-size: 0.8rem;
             margin-bottom: 2px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
 
-        .rec-item .info p {
-            font-size: 0.68rem;
-            color: var(--gray);
+        .rec-item .info span {
+            font-size: 0.65rem;
+            color: #999;
         }
 
-        .rec-item .del-btn {
+        .rec-item .del {
             background: none;
             border: none;
             color: var(--primary);
             cursor: pointer;
-            font-size: 1rem;
-        }
-
-        /* HISTORY */
-        .history-head {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .history-head h3 {
-            color: var(--primary);
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .history-actions {
-            display: flex;
-            gap: 8px;
-        }
-
-        .icon-btn {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-
-        .icon-btn.refresh {
-            background: var(--info);
-            color: var(--white);
-        }
-
-        .icon-btn.del-all {
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        .icon-btn:hover {
-            transform: scale(1.08);
-        }
-
-        .icon-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .history-item {
-            background: var(--white);
-            border-radius: 14px;
-            padding: 14px;
-            margin-bottom: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--primary);
-        }
-
-        .history-item .top-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 8px;
-        }
-
-        .history-item .name {
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 0.88rem;
-        }
-
-        .history-item .date {
-            font-size: 0.68rem;
-            color: var(--gray);
-        }
-
-        .history-item .detail {
-            font-size: 0.78rem;
-            color: var(--gray-dark);
-            margin-bottom: 10px;
-        }
-
-        .history-item .bottom-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 600;
-        }
-
-        .badge-istimewa { background: #fef9e7; color: #d4ac0d; }
-        .badge-bagus { background: #e8f8f5; color: #1e8449; }
-        .badge-cukup { background: #ebf5fb; color: #2874a6; }
-        .badge-mengulang { background: #fdedec; color: #c0392b; }
-
-        .del-item-btn {
-            background: none;
-            border: none;
-            color: var(--primary);
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-
-        /* STATS */
-        .stat-main {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: var(--white);
-            border-radius: 16px;
-            padding: 22px;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .stat-main h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3px;
-        }
-
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-bottom: 15px;
-        }
-
-        .stat-item {
-            background: var(--white);
-            border-radius: 14px;
-            padding: 16px;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .stat-item i {
-            font-size: 1.6rem;
-            margin-bottom: 6px;
-        }
-
-        .stat-item h3 {
-            font-size: 1.4rem;
-            color: var(--primary);
-            margin-bottom: 2px;
-        }
-
-        .stat-item p {
-            font-size: 0.72rem;
-            color: var(--gray);
-        }
-
-        .progress-card {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 18px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .progress-card h4 {
-            color: var(--primary);
-            margin-bottom: 18px;
-            font-size: 0.9rem;
-        }
-
-        .progress-item {
-            margin-bottom: 16px;
-        }
-
-        .progress-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .progress-label {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-            font-size: 0.78rem;
-        }
-
-        .progress-bar {
-            height: 10px;
-            background: var(--gray-light);
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            border-radius: 5px;
-            transition: width 0.5s ease;
-        }
-
-        .fill-yasin { background: linear-gradient(90deg, #e74c3c, #f39c12); }
-        .fill-waqiah { background: linear-gradient(90deg, #9b59b6, #e74c3c); }
-        .fill-mulk { background: linear-gradient(90deg, #3498db, #1abc9c); }
-
-        /* INFO */
-        .info-box {
-            background: var(--accent-light);
-            border-radius: 14px;
-            padding: 16px;
-            margin-top: 15px;
-        }
-
-        .info-box h4 {
-            color: var(--primary);
-            margin-bottom: 12px;
-            font-size: 0.88rem;
-        }
-
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 7px 0;
-            border-bottom: 1px dashed #ddd;
-            font-size: 0.78rem;
-        }
-
-        .info-row:last-child {
-            border-bottom: none;
-        }
-
-        .info-row span:first-child {
-            color: var(--gray);
-        }
-
-        .info-row span:last-child {
-            font-weight: 500;
         }
 
         /* FOOTER */
-        .app-footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--white);
-            padding: 12px 20px;
+        .footer {
+            background: #fff;
+            padding: 8px 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 -3px 15px rgba(0,0,0,0.1);
-            z-index: 100;
+            border-top: 1px solid #eee;
         }
 
-        .app-footer.hidden {
-            display: none;
-        }
-
-        .footer-btn {
+        .footer a {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 16px;
-            border: none;
-            border-radius: 25px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            font-family: inherit;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .wa-btn {
+            gap: 6px;
+            padding: 8px 14px;
             background: #25d366;
-            color: var(--white);
+            color: #fff;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
         }
 
-        .wa-btn:hover {
-            background: #128c7e;
-        }
-
-        .logout-btn {
-            background: var(--accent);
+        .footer .logout {
+            padding: 8px 12px;
+            border: none;
+            background: #fef2f1;
             color: var(--primary);
-            padding: 10px 14px;
-        }
-
-        .logout-btn:hover {
-            background: #f8c4c0;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
         }
 
         /* MODAL */
         .modal {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            inset: 0;
             background: rgba(0,0,0,0.5);
-            z-index: 1000;
             align-items: center;
             justify-content: center;
             padding: 20px;
+            z-index: 999;
         }
 
         .modal.show {
@@ -939,30 +699,23 @@
         }
 
         .modal-box {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 28px 24px;
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
             width: 100%;
-            max-width: 360px;
-            animation: modalPop 0.3s ease;
-        }
-
-        @keyframes modalPop {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+            max-width: 300px;
+            text-align: center;
         }
 
         .modal-box h3 {
-            text-align: center;
-            margin-bottom: 12px;
             color: var(--primary);
+            margin-bottom: 10px;
         }
 
         .modal-box p {
-            text-align: center;
-            color: var(--gray);
-            margin-bottom: 20px;
-            font-size: 0.88rem;
+            color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
         }
 
         .modal-btns {
@@ -970,837 +723,597 @@
             gap: 10px;
         }
 
-        .modal-btns .btn {
+        .modal-btns button {
             flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .modal-btns .cancel {
+            background: #eee;
+            color: #333;
+        }
+
+        .modal-btns .confirm {
+            background: var(--primary);
+            color: #fff;
         }
 
         /* TOAST */
         .toast {
             position: fixed;
-            top: 20px;
+            top: 10px;
             left: 50%;
             transform: translateX(-50%) translateY(-100px);
-            padding: 12px 24px;
-            border-radius: 12px;
-            color: var(--white);
-            font-weight: 500;
-            font-size: 0.9rem;
-            z-index: 2000;
-            transition: transform 0.4s ease;
-            box-shadow: var(--shadow-lg);
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 0.85rem;
+            z-index: 1000;
+            transition: transform 0.3s;
         }
 
         .toast.show {
             transform: translateX(-50%) translateY(0);
         }
 
-        .toast.success { background: var(--success); }
+        .toast.success { background: #27ae60; }
         .toast.error { background: var(--primary); }
-        .toast.info { background: var(--info); }
+        .toast.info { background: #3498db; }
 
-        /* EMPTY STATE */
-        .empty-state {
-            text-align: center;
-            padding: 35px 15px;
-            color: var(--gray);
-        }
-
-        .empty-state i {
-            font-size: 3rem;
-            opacity: 0.4;
-            margin-bottom: 12px;
-        }
-
-        .empty-state p {
-            font-size: 0.88rem;
-        }
-
-        /* LOADING */
         .loading {
-            display: none;
             text-align: center;
-            padding: 30px;
-        }
-
-        .loading.show {
-            display: block;
+            padding: 20px;
+            color: #999;
         }
 
         .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid var(--accent);
+            width: 30px;
+            height: 30px;
+            border: 3px solid #eee;
             border-top-color: var(--primary);
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin: 0 auto 12px;
+            margin: 0 auto 10px;
         }
 
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
 
-        .hidden {
-            display: none !important;
-        }
-
-        @media (max-width: 380px) {
-            .target-grid, .predikat-grid, .stat-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        .hide { display: none !important; }
     </style>
 </head>
 <body>
-    <!-- TOAST -->
     <div class="toast" id="toast"></div>
 
-    <!-- ===== LOGIN ===== -->
-    <div class="login-page" id="loginPage">
-        <div class="login-header">
-            <div class="logo-wrapper">
-                <img src="https://iili.io/fXljUa1.png" alt="Logo">
+    <!-- LOGIN -->
+    <div class="login" id="loginPage">
+        <img src="https://iili.io/fXljUa1.png" alt="Logo">
+        <h1>📖 Buku Prestasi 6A</h1>
+        <p>MIS Hidayatul Mubtadiin - Undaan Kidul Kudus</p>
+
+        <div class="login-box">
+            <div class="login-opt">
+                <button id="optG" onclick="pickOpt('guru')">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    Guru
+                </button>
+                <button id="optM" onclick="pickOpt('murid')">
+                    <i class="fas fa-user-graduate"></i>
+                    Murid
+                </button>
             </div>
-            <h1>📖 Buku Prestasi 6A</h1>
-            <h2>MIS HIDAYATUL MUBTADIIN</h2>
-            <p><i class="fas fa-map-marker-alt"></i> Undaan Kidul Kudus</p>
-        </div>
 
-        <div class="login-card">
-            <h3><i class="fas fa-sign-in-alt"></i> Silakan Masuk</h3>
-
-            <div class="login-option" id="optGuru" onclick="selectOption('guru')">
-                <h4><i class="fas fa-chalkboard-teacher"></i> Guru Tahfidh</h4>
-                <p>Akses penuh untuk mengelola data</p>
-            </div>
-
-            <div class="password-box" id="pwdBox">
-                <div class="input-group">
-                    <input type="password" id="pwdInput" placeholder="Masukkan kata sandi">
-                    <i class="fas fa-eye toggle-eye" id="toggleEye" onclick="togglePwd()"></i>
+            <div class="pwd-box" id="pwdBox">
+                <div class="inp">
+                    <input type="password" id="pwd" placeholder="Kata sandi">
+                    <i class="fas fa-eye eye" id="eye" onclick="toggleEye()"></i>
                 </div>
             </div>
 
-            <div class="login-option" id="optMurid" onclick="selectOption('murid')">
-                <h4><i class="fas fa-user-graduate"></i> Murid</h4>
-                <p>Hanya dapat melihat data</p>
-            </div>
-
-            <button class="btn btn-primary" onclick="doLogin()">
-                <i class="fas fa-arrow-right"></i> Masuk
+            <button class="btn btn-primary" onclick="login()">
+                <i class="fas fa-sign-in-alt"></i> Masuk
             </button>
         </div>
     </div>
 
-    <!-- ===== DASHBOARD ===== -->
+    <!-- DASHBOARD -->
     <div class="dashboard" id="dashboard">
-        <div class="dash-header">
-            <img src="https://iili.io/fXljUa1.png" alt="Logo" class="logo-sm">
-            <h1>📖 Buku Prestasi 6A</h1>
-            <p>MIS Hidayatul Mubtadiin • Undaan Kidul Kudus</p>
-            <div class="user-badge">
-                <i class="fas fa-user"></i>
-                <span id="userDisplay">Guru Tahfidh</span>
+        <div class="header">
+            <img src="https://iili.io/fXljUa1.png" alt="Logo">
+            <div class="info">
+                <h1>📖 Buku Prestasi 6A</h1>
+                <p>MIS Hidayatul Mubtadiin</p>
             </div>
+            <span class="user" id="userBadge">Guru</span>
         </div>
 
-        <div class="tabs-nav">
-            <button class="tab-btn active" onclick="switchTab('setor')">
-                <i class="fas fa-book-quran"></i>
-                <span>Setor</span>
-            </button>
-            <button class="tab-btn" onclick="switchTab('bimbingan')" id="tabBimbingan">
-                <i class="fas fa-microphone"></i>
-                <span>Bimbingan</span>
-            </button>
-            <button class="tab-btn" onclick="switchTab('riwayat')">
-                <i class="fas fa-history"></i>
-                <span>Riwayat</span>
-            </button>
-            <button class="tab-btn" onclick="switchTab('statistik')">
-                <i class="fas fa-chart-bar"></i>
-                <span>Statistik</span>
-            </button>
+        <div class="tabs">
+            <button class="active" onclick="switchTab(0)"><i class="fas fa-book-quran"></i>Setor</button>
+            <button id="tabRec" onclick="switchTab(1)"><i class="fas fa-microphone"></i>Rekam</button>
+            <button onclick="switchTab(2)"><i class="fas fa-history"></i>Riwayat</button>
+            <button onclick="switchTab(3)"><i class="fas fa-chart-pie"></i>Statistik</button>
         </div>
 
-        <!-- TAB: SETOR -->
-        <div class="tab-content active" id="contentSetor">
-            <div class="view-notice hidden" id="viewNotice">
-                <i class="fas fa-info-circle"></i>
-                <span>Mode lihat saja - tidak dapat mengirim setoran</span>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title"><i class="fas fa-bullseye"></i> Target Hafalan</h3>
-                <div class="target-grid">
-                    <div class="target-item">
-                        <h4>Yasin</h4>
-                        <p>83 Ayat</p>
-                    </div>
-                    <div class="target-item">
-                        <h4>Al-Waqi'ah</h4>
-                        <p>96 Ayat</p>
-                    </div>
-                    <div class="target-item">
-                        <h4>Al-Mulk</h4>
-                        <p>30 Ayat</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" id="formCard">
-                <h3 class="card-title"><i class="fas fa-pen-fancy"></i> Form Setoran</h3>
-
-                <div class="form-group">
-                    <label><i class="fas fa-user"></i> Pilih Siswa</label>
-                    <select class="form-control" id="selSiswa">
-                        <option value="">-- Pilih Siswa --</option>
-                        <option value="1. Abdullah Fatir Ibrahim">1. Abdullah Fatir Ibrahim</option>
-                        <option value="2. Arfaa Aizzatul Ramadhani">2. Arfaa Aizzatul Ramadhani</option>
-                        <option value="3. Ayunda Qurrota A'Yun">3. Ayunda Qurrota A'Yun</option>
-                        <option value="4. Azkiya Azzahwa">4. Azkiya Azzahwa</option>
-                        <option value="5. Daffa Ibnu Hafidz">5. Daffa Ibnu Hafidz</option>
-                        <option value="6. Fatihatul Husniya">6. Fatihatul Husniya</option>
-                        <option value="7. Hania Syakira Assyafii">7. Hania Syakira Assyafii</option>
-                        <option value="8. Ihda Alya Lathifa">8. Ihda Alya Lathifa</option>
-                        <option value="9. Kanaya Afka Uliyani">9. Kanaya Afka Uliyani</option>
-                        <option value="10. Lathif Akmal 'Azzam">10. Lathif Akmal 'Azzam</option>
-                        <option value="11. Moh Adam Al Assegaf">11. Moh Adam Al Assegaf</option>
-                        <option value="12. Moh Zaiyani Syarif">12. Moh Zaiyani Syarif</option>
-                        <option value="13. Muh Althof Adabi">13. Muh Althof Adabi</option>
-                        <option value="14. Muhammad Habibur Rohman">14. Muhammad Habibur Rohman</option>
-                        <option value="15. Muhammad Khoirul Mannan">15. Muhammad Khoirul Mannan</option>
-                        <option value="16. Raihan Izzuddin">16. Raihan Izzuddin</option>
-                        <option value="17. Salwa Khuzama">17. Salwa Khuzama</option>
-                        <option value="18. Savira Putri Mahira">18. Savira Putri Mahira</option>
-                        <option value="19. Septian Norsa Amarta">19. Septian Norsa Amarta</option>
-                        <option value="20. Zaida Ilmania Ramadhani">20. Zaida Ilmania Ramadhani</option>
-                    </select>
+        <div class="content">
+            <!-- TAB 0: SETOR -->
+            <div class="tab-panel active" id="panel0">
+                <div class="notice hide" id="notice">
+                    <i class="fas fa-info-circle"></i> Mode lihat saja
                 </div>
 
-                <div class="form-group">
-                    <label><i class="fas fa-book-open"></i> Pilih Surat</label>
-                    <select class="form-control" id="selSurat" onchange="updateMax()">
-                        <option value="">-- Pilih Surat --</option>
-                        <option value="36|Yasin|83">36. Yasin (83 Ayat)</option>
-                        <option value="56|Al-Waqi'ah|96">56. Al-Waqi'ah (96 Ayat)</option>
-                        <option value="67|Al-Mulk|30">67. Al-Mulk (30 Ayat)</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label><i class="fas fa-list-ol"></i> Rentang Ayat <small id="ayatHint"></small></label>
-                    <div class="ayat-range">
-                        <input type="number" class="form-control" id="ayatFrom" placeholder="Dari" min="1">
-                        <span>—</span>
-                        <input type="number" class="form-control" id="ayatTo" placeholder="Sampai" min="1">
+                <div id="formArea">
+                    <div class="form-row">
+                        <label><i class="fas fa-user"></i> Siswa</label>
+                        <select id="selSiswa">
+                            <option value="">-- Pilih --</option>
+                            <option>1. Abdullah Fatir Ibrahim</option>
+                            <option>2. Arfaa Aizzatul Ramadhani</option>
+                            <option>3. Ayunda Qurrota A'Yun</option>
+                            <option>4. Azkiya Azzahwa</option>
+                            <option>5. Daffa Ibnu Hafidz</option>
+                            <option>6. Fatihatul Husniya</option>
+                            <option>7. Hania Syakira Assyafii</option>
+                            <option>8. Ihda Alya Lathifa</option>
+                            <option>9. Kanaya Afka Uliyani</option>
+                            <option>10. Lathif Akmal 'Azzam</option>
+                            <option>11. Moh Adam Al Assegaf</option>
+                            <option>12. Moh Zaiyani Syarif</option>
+                            <option>13. Muh Althof Adabi</option>
+                            <option>14. Muhammad Habibur Rohman</option>
+                            <option>15. Muhammad Khoirul Mannan</option>
+                            <option>16. Raihan Izzuddin</option>
+                            <option>17. Salwa Khuzama</option>
+                            <option>18. Savira Putri Mahira</option>
+                            <option>19. Septian Norsa Amarta</option>
+                            <option>20. Zaida Ilmania Ramadhani</option>
+                        </select>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label><i class="fas fa-star"></i> Predikat</label>
-                    <div class="predikat-grid">
-                        <div class="predikat-item istimewa" onclick="pickPredikat('Istimewa', this)">
-                            <i class="fas fa-crown"></i>
-                            <span>Istimewa</span>
-                        </div>
-                        <div class="predikat-item bagus" onclick="pickPredikat('Bagus', this)">
-                            <i class="fas fa-thumbs-up"></i>
-                            <span>Bagus</span>
-                        </div>
-                        <div class="predikat-item cukup" onclick="pickPredikat('Cukup', this)">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Cukup</span>
-                        </div>
-                        <div class="predikat-item mengulang" onclick="pickPredikat('Mengulang', this)">
-                            <i class="fas fa-redo-alt"></i>
-                            <span>Mengulang</span>
+                    <div class="form-row">
+                        <label><i class="fas fa-book"></i> Surat</label>
+                        <select id="selSurat" onchange="updateMax()">
+                            <option value="">-- Pilih --</option>
+                            <option value="36|Yasin|83">36. Yasin (83)</option>
+                            <option value="56|Al-Waqi'ah|96">56. Al-Waqi'ah (96)</option>
+                            <option value="67|Al-Mulk|30">67. Al-Mulk (30)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <label><i class="fas fa-list-ol"></i> Ayat <small id="maxAyat"></small></label>
+                        <div class="ayat-row">
+                            <input type="number" id="ayatA" placeholder="Dari" min="1">
+                            <span>—</span>
+                            <input type="number" id="ayatB" placeholder="Sampai" min="1">
                         </div>
                     </div>
-                </div>
 
-                <button class="btn btn-primary" onclick="submitSetoran()" id="btnSubmit">
-                    <i class="fas fa-paper-plane"></i> Kirim Setoran
-                </button>
+                    <div class="form-row">
+                        <label><i class="fas fa-star"></i> Predikat</label>
+                        <div class="predikat-row">
+                            <button class="pred-btn p1" onclick="pickPred('Istimewa',this)">
+                                <i class="fas fa-crown"></i>Istimewa
+                            </button>
+                            <button class="pred-btn p2" onclick="pickPred('Bagus',this)">
+                                <i class="fas fa-thumbs-up"></i>Bagus
+                            </button>
+                            <button class="pred-btn p3" onclick="pickPred('Cukup',this)">
+                                <i class="fas fa-check"></i>Cukup
+                            </button>
+                            <button class="pred-btn p4" onclick="pickPred('Mengulang',this)">
+                                <i class="fas fa-redo"></i>Ulang
+                            </button>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" id="btnKirim" onclick="kirim()">
+                        <i class="fas fa-paper-plane"></i> Kirim
+                    </button>
+                </div>
             </div>
 
-            <div class="info-box">
-                <h4><i class="fas fa-info-circle"></i> Informasi</h4>
-                <div class="info-row">
-                    <span>Kepala Madrasah</span>
-                    <span>M. Arifin, S.Pd.I, M.Pd</span>
-                </div>
-                <div class="info-row">
-                    <span>Guru Tahfidh</span>
-                    <span>M. Yusni</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- TAB: BIMBINGAN -->
-        <div class="tab-content" id="contentBimbingan">
-            <div class="card">
-                <h3 class="card-title"><i class="fas fa-microphone-alt"></i> Rekam Bimbingan</h3>
-
-                <div class="form-group">
-                    <input type="text" class="form-control" id="recTitle" placeholder="Judul rekaman (cth: Bimbingan Yasin 1-10)">
-                </div>
-
-                <div class="record-box">
-                    <button class="record-btn" id="recBtn" onclick="toggleRec()">
+            <!-- TAB 1: REKAM -->
+            <div class="tab-panel" id="panel1">
+                <div class="rec-box">
+                    <input type="text" id="recTitle" placeholder="Judul rekaman...">
+                    <button class="rec-btn" id="recBtn" onclick="toggleRec()">
                         <i class="fas fa-microphone" id="recIcon"></i>
                     </button>
                     <p class="rec-status" id="recStatus">Tekan untuk merekam</p>
                     <p class="rec-timer" id="recTimer">00:00</p>
-                </div>
 
-                <div class="rec-preview" id="recPreview">
-                    <audio id="audioPreview" controls></audio>
-                    <button class="btn btn-success" onclick="saveRec()">
-                        <i class="fas fa-save"></i> Simpan Rekaman
-                    </button>
+                    <div class="rec-preview" id="recPreview">
+                        <audio id="audioPreview" controls></audio>
+                        <button class="btn btn-primary" onclick="saveRec()">
+                            <i class="fas fa-save"></i> Simpan
+                        </button>
+                    </div>
+
+                    <div class="rec-list" id="recList"></div>
                 </div>
             </div>
 
-            <div class="card">
-                <h3 class="card-title"><i class="fas fa-list"></i> Daftar Rekaman</h3>
-                <div class="rec-list" id="recList">
-                    <div class="empty-state">
-                        <i class="fas fa-microphone-slash"></i>
-                        <p>Belum ada rekaman</p>
+            <!-- TAB 2: RIWAYAT -->
+            <div class="tab-panel" id="panel2">
+                <div class="hist-head">
+                    <h3><i class="fas fa-history"></i> Riwayat</h3>
+                    <div class="hist-btns">
+                        <button class="ref" onclick="refresh()" id="btnRef"><i class="fas fa-sync-alt"></i></button>
+                        <button class="del hide" id="btnDelAll" onclick="showModal()"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+                <div class="loading hide" id="loading">
+                    <div class="spinner"></div>
+                    <p>Memuat...</p>
+                </div>
+                <div id="histList"></div>
+            </div>
+
+            <!-- TAB 3: STATISTIK -->
+            <div class="tab-panel" id="panel3">
+                <div class="stat-main">
+                    <h2 id="totalS">0</h2>
+                    <p>Total Setoran</p>
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <i class="fas fa-crown" style="color:#f1c40f"></i>
+                        <h4 id="sI">0</h4>
+                        <span>Istimewa</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-thumbs-up" style="color:#27ae60"></i>
+                        <h4 id="sB">0</h4>
+                        <span>Bagus</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-check" style="color:#3498db"></i>
+                        <h4 id="sC">0</h4>
+                        <span>Cukup</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-redo" style="color:#e74c3c"></i>
+                        <h4 id="sM">0</h4>
+                        <span>Ulang</span>
+                    </div>
+                </div>
+
+                <div class="prog-card">
+                    <h4><i class="fas fa-chart-line"></i> Progres Surat</h4>
+                    <div class="prog-item">
+                        <div class="prog-label"><span>Yasin</span><span id="pY">0%</span></div>
+                        <div class="prog-bar"><div class="prog-fill f1" id="bY" style="width:0%"></div></div>
+                    </div>
+                    <div class="prog-item">
+                        <div class="prog-label"><span>Al-Waqi'ah</span><span id="pW">0%</span></div>
+                        <div class="prog-bar"><div class="prog-fill f2" id="bW" style="width:0%"></div></div>
+                    </div>
+                    <div class="prog-item">
+                        <div class="prog-label"><span>Al-Mulk</span><span id="pM">0%</span></div>
+                        <div class="prog-bar"><div class="prog-fill f3" id="bM" style="width:0%"></div></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- TAB: RIWAYAT -->
-        <div class="tab-content" id="contentRiwayat">
-            <div class="history-head">
-                <h3><i class="fas fa-history"></i> Riwayat Setoran</h3>
-                <div class="history-actions">
-                    <button class="icon-btn refresh" onclick="refreshData()" id="btnRefresh" title="Refresh">
-                        <i class="fas fa-sync-alt"></i>
-                    </button>
-                    <button class="icon-btn del-all hidden" id="btnDelAll" onclick="showDelAllModal()" title="Hapus Semua">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="loading" id="loadingBox">
-                <div class="spinner"></div>
-                <p>Memuat data...</p>
-            </div>
-
-            <div id="historyContainer">
-                <div class="empty-state">
-                    <i class="fas fa-inbox"></i>
-                    <p>Belum ada riwayat setoran</p>
-                </div>
-            </div>
+        <div class="footer">
+            <a href="https://wa.me/6285176776403" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <button class="logout" onclick="logout()"><i class="fas fa-sign-out-alt"></i></button>
         </div>
-
-        <!-- TAB: STATISTIK -->
-        <div class="tab-content" id="contentStatistik">
-            <div class="stat-main">
-                <h2 id="totalSetor">0</h2>
-                <p>Total Setoran</p>
-            </div>
-
-            <div class="stat-grid">
-                <div class="stat-item">
-                    <i class="fas fa-crown" style="color: #f1c40f;"></i>
-                    <h3 id="cntIstimewa">0</h3>
-                    <p>Istimewa</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-thumbs-up" style="color: #27ae60;"></i>
-                    <h3 id="cntBagus">0</h3>
-                    <p>Bagus</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-check-circle" style="color: #3498db;"></i>
-                    <h3 id="cntCukup">0</h3>
-                    <p>Cukup</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-redo-alt" style="color: #e74c3c;"></i>
-                    <h3 id="cntMengulang">0</h3>
-                    <p>Mengulang</p>
-                </div>
-            </div>
-
-            <div class="progress-card">
-                <h4><i class="fas fa-chart-line"></i> Progres Per Surat</h4>
-                <div class="progress-item">
-                    <div class="progress-label">
-                        <span>Yasin (83 Ayat)</span>
-                        <span id="pctYasin">0%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill fill-yasin" id="barYasin" style="width: 0%"></div>
-                    </div>
-                </div>
-                <div class="progress-item">
-                    <div class="progress-label">
-                        <span>Al-Waqi'ah (96 Ayat)</span>
-                        <span id="pctWaqiah">0%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill fill-waqiah" id="barWaqiah" style="width: 0%"></div>
-                    </div>
-                </div>
-                <div class="progress-item">
-                    <div class="progress-label">
-                        <span>Al-Mulk (30 Ayat)</span>
-                        <span id="pctMulk">0%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill fill-mulk" id="barMulk" style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
-    <div class="app-footer hidden" id="appFooter">
-        <a href="https://wa.me/6285176776403" target="_blank" class="footer-btn wa-btn">
-            <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
-        <button class="footer-btn logout-btn" onclick="doLogout()">
-            <i class="fas fa-sign-out-alt"></i>
-        </button>
     </div>
 
     <!-- MODAL -->
-    <div class="modal" id="modalDelAll">
+    <div class="modal" id="modal">
         <div class="modal-box">
-            <h3><i class="fas fa-exclamation-triangle" style="color: #e74c3c;"></i> Konfirmasi</h3>
-            <p>Hapus semua data setoran?</p>
+            <h3><i class="fas fa-exclamation-triangle" style="color:#e74c3c"></i> Konfirmasi</h3>
+            <p>Hapus semua data?</p>
             <div class="modal-btns">
-                <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
-                <button class="btn btn-danger" onclick="deleteAll()">Hapus</button>
+                <button class="cancel" onclick="hideModal()">Batal</button>
+                <button class="confirm" onclick="delAll()">Hapus</button>
             </div>
         </div>
     </div>
 
     <script>
-        // =============================================
-        // ⚠️ GANTI URL INI DENGAN URL DEPLOYMENT ANDA
-        // =============================================
-        const API_URL = 'https://script.google.com/macros/s/AKfycbxGzLC-yhVdIBrnhD5BvIZnQI9DzpWf672SP8vPQEGJDYO2OaHHgHLVBZ3mA_1Iuobp/exec';
+        // CONFIG - GANTI DENGAN URL ANDA
+        const API = 'https://script.google.com/macros/s/AKfycbxGzLC-yhVdIBrnhD5BvIZnQI9DzpWf672SP8vPQEGJDYO2OaHHgHLVBZ3mA_1Iuobp/exec';
 
-        // =============================================
-        // VARIABLES
-        // =============================================
-        let currentUser = null;
-        let selectedPredikat = '';
-        let historyData = [];
-        let recordings = [];
-        
-        // Recording
-        let mediaRecorder = null;
-        let audioChunks = [];
-        let isRecording = false;
-        let recInterval = null;
-        let recSeconds = 0;
+        let user = null;
+        let pred = '';
+        let data = [];
+        let recs = [];
+        let mediaRec = null;
+        let chunks = [];
+        let isRec = false;
+        let recInt = null;
+        let recSec = 0;
 
-        // =============================================
         // INIT
-        // =============================================
         document.addEventListener('DOMContentLoaded', () => {
-            loadLocal();
-            loadRecs();
+            data = JSON.parse(localStorage.getItem('d6a') || '[]');
+            recs = JSON.parse(localStorage.getItem('r6a') || '[]');
         });
 
-        // =============================================
         // LOGIN
-        // =============================================
-        function selectOption(type) {
-            document.querySelectorAll('.login-option').forEach(el => el.classList.remove('active'));
-            if (type === 'guru') {
-                document.getElementById('optGuru').classList.add('active');
-                document.getElementById('pwdBox').classList.add('show');
+        function pickOpt(t) {
+            document.getElementById('optG').classList.toggle('active', t === 'guru');
+            document.getElementById('optM').classList.toggle('active', t === 'murid');
+            document.getElementById('pwdBox').classList.toggle('show', t === 'guru');
+        }
+
+        function toggleEye() {
+            const p = document.getElementById('pwd');
+            const e = document.getElementById('eye');
+            if (p.type === 'password') {
+                p.type = 'text';
+                e.classList.replace('fa-eye', 'fa-eye-slash');
             } else {
-                document.getElementById('optMurid').classList.add('active');
-                document.getElementById('pwdBox').classList.remove('show');
+                p.type = 'password';
+                e.classList.replace('fa-eye-slash', 'fa-eye');
             }
         }
 
-        function togglePwd() {
-            const input = document.getElementById('pwdInput');
-            const icon = document.getElementById('toggleEye');
-            if (input.type === 'password') {
-                input.type = 'text';
-                icon.classList.replace('fa-eye', 'fa-eye-slash');
-            } else {
-                input.type = 'password';
-                icon.classList.replace('fa-eye-slash', 'fa-eye');
-            }
-        }
+        function login() {
+            const isG = document.getElementById('optG').classList.contains('active');
+            const isM = document.getElementById('optM').classList.contains('active');
 
-        function doLogin() {
-            const isGuru = document.getElementById('optGuru').classList.contains('active');
-            const isMurid = document.getElementById('optMurid').classList.contains('active');
-            
-            if (!isGuru && !isMurid) {
-                showToast('Pilih jenis pengguna!', 'error');
-                return;
-            }
+            if (!isG && !isM) return toast('Pilih jenis user!', 'error');
 
-            if (isGuru) {
-                if (document.getElementById('pwdInput').value !== 'emyusni') {
-                    showToast('Kata sandi salah!', 'error');
-                    return;
-                }
-                currentUser = 'guru';
-                document.getElementById('userDisplay').textContent = 'Guru Tahfidh';
+            if (isG) {
+                if (document.getElementById('pwd').value !== 'emyusni') return toast('Password salah!', 'error');
+                user = 'guru';
+                document.getElementById('userBadge').textContent = 'Guru';
             } else {
-                currentUser = 'murid';
-                document.getElementById('userDisplay').textContent = 'Murid';
+                user = 'murid';
+                document.getElementById('userBadge').textContent = 'Murid';
             }
 
             document.getElementById('loginPage').style.display = 'none';
             document.getElementById('dashboard').classList.add('active');
-            document.getElementById('appFooter').classList.remove('hidden');
 
-            if (currentUser === 'murid') {
-                document.getElementById('viewNotice').classList.remove('hidden');
-                document.getElementById('formCard').style.opacity = '0.6';
-                document.getElementById('formCard').style.pointerEvents = 'none';
-                document.getElementById('tabBimbingan').classList.add('hidden');
-                document.getElementById('btnDelAll').classList.add('hidden');
+            if (user === 'murid') {
+                document.getElementById('notice').classList.remove('hide');
+                document.getElementById('formArea').style.opacity = '0.5';
+                document.getElementById('formArea').style.pointerEvents = 'none';
+                document.getElementById('tabRec').classList.add('hide');
+                document.getElementById('btnDelAll').classList.add('hide');
             } else {
-                document.getElementById('viewNotice').classList.add('hidden');
-                document.getElementById('formCard').style.opacity = '1';
-                document.getElementById('formCard').style.pointerEvents = 'auto';
-                document.getElementById('tabBimbingan').classList.remove('hidden');
-                document.getElementById('btnDelAll').classList.remove('hidden');
+                document.getElementById('notice').classList.add('hide');
+                document.getElementById('formArea').style.opacity = '1';
+                document.getElementById('formArea').style.pointerEvents = 'auto';
+                document.getElementById('tabRec').classList.remove('hide');
+                document.getElementById('btnDelAll').classList.remove('hide');
             }
 
-            refreshData();
-            showToast('Selamat datang!', 'success');
+            refresh();
+            toast('Selamat datang!', 'success');
         }
 
-        function doLogout() {
-            currentUser = null;
+        function logout() {
+            user = null;
             document.getElementById('loginPage').style.display = 'flex';
             document.getElementById('dashboard').classList.remove('active');
-            document.getElementById('appFooter').classList.add('hidden');
-            document.getElementById('pwdInput').value = '';
-            document.querySelectorAll('.login-option').forEach(el => el.classList.remove('active'));
+            document.getElementById('pwd').value = '';
+            document.querySelectorAll('.login-opt button').forEach(b => b.classList.remove('active'));
             document.getElementById('pwdBox').classList.remove('show');
-            switchTab('setor');
+            switchTab(0);
         }
 
-        // =============================================
         // TABS
-        // =============================================
-        function switchTab(tab) {
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            
-            event.target.closest('.tab-btn').classList.add('active');
-            
-            const map = {
-                'setor': 'contentSetor',
-                'bimbingan': 'contentBimbingan',
-                'riwayat': 'contentRiwayat',
-                'statistik': 'contentStatistik'
-            };
-            
-            document.getElementById(map[tab]).classList.add('active');
-            
-            if (tab === 'riwayat') refreshData();
-            if (tab === 'statistik') updateStats();
+        function switchTab(i) {
+            document.querySelectorAll('.tabs button').forEach((b, idx) => b.classList.toggle('active', idx === i));
+            document.querySelectorAll('.tab-panel').forEach((p, idx) => p.classList.toggle('active', idx === i));
+            if (i === 2) refresh();
+            if (i === 3) updateStats();
         }
 
-        // =============================================
         // FORM
-        // =============================================
         function updateMax() {
-            const sel = document.getElementById('selSurat');
-            const hint = document.getElementById('ayatHint');
-            if (sel.value) {
-                const max = sel.value.split('|')[2];
-                hint.textContent = `(Maks: ${max})`;
-                document.getElementById('ayatFrom').max = max;
-                document.getElementById('ayatTo').max = max;
+            const v = document.getElementById('selSurat').value;
+            const h = document.getElementById('maxAyat');
+            if (v) {
+                const m = v.split('|')[2];
+                h.textContent = `(maks ${m})`;
+                document.getElementById('ayatA').max = m;
+                document.getElementById('ayatB').max = m;
             } else {
-                hint.textContent = '';
+                h.textContent = '';
             }
         }
 
-        function pickPredikat(val, el) {
-            document.querySelectorAll('.predikat-item').forEach(i => i.classList.remove('selected'));
+        function pickPred(v, el) {
+            document.querySelectorAll('.pred-btn').forEach(b => b.classList.remove('selected'));
             el.classList.add('selected');
-            selectedPredikat = val;
+            pred = v;
         }
 
-        async function submitSetoran() {
+        async function kirim() {
             const siswa = document.getElementById('selSiswa').value;
             const surat = document.getElementById('selSurat').value;
-            const from = document.getElementById('ayatFrom').value;
-            const to = document.getElementById('ayatTo').value;
+            const a = document.getElementById('ayatA').value;
+            const b = document.getElementById('ayatB').value;
 
-            if (!siswa || !surat || !from || !to || !selectedPredikat) {
-                showToast('Lengkapi semua data!', 'error');
-                return;
-            }
+            if (!siswa || !surat || !a || !b || !pred) return toast('Lengkapi data!', 'error');
 
-            const parts = surat.split('|');
-            const max = parseInt(parts[2]);
+            const p = surat.split('|');
+            if (+a > +b) return toast('Ayat awal > akhir!', 'error');
+            if (+b > +p[2]) return toast('Melebihi jumlah ayat!', 'error');
 
-            if (parseInt(from) > parseInt(to)) {
-                showToast('Ayat awal > akhir!', 'error');
-                return;
-            }
-
-            if (parseInt(to) > max) {
-                showToast(`Maks ayat: ${max}!`, 'error');
-                return;
-            }
-
-            const btn = document.getElementById('btnSubmit');
+            const btn = document.getElementById('btnKirim');
             btn.disabled = true;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
 
             const params = new URLSearchParams({
                 action: 'add',
-                siswa: siswa,
-                noSurat: parts[0],
-                namaSurat: parts[1],
-                ayatDari: from,
-                ayatSampai: to,
-                predikat: selectedPredikat
+                siswa, noSurat: p[0], namaSurat: p[1], ayatDari: a, ayatSampai: b, predikat: pred
             });
 
             try {
-                const res = await fetch(`${API_URL}?${params.toString()}`);
+                const res = await fetch(`${API}?${params}`);
                 const json = await res.json();
-                
                 if (json.success) {
-                    showToast('Berhasil dikirim!', 'success');
-                    
-                    // Simpan juga ke lokal
-                    historyData.push({
+                    toast('Terkirim!', 'success');
+                    data.push({
                         id: json.id || Date.now().toString(),
                         tanggal: new Date().toLocaleString('id-ID'),
-                        siswa: siswa,
-                        noSurat: parts[0],
-                        namaSurat: parts[1],
-                        ayatDari: from,
-                        ayatSampai: to,
-                        predikat: selectedPredikat
+                        siswa, noSurat: p[0], namaSurat: p[1], ayatDari: a, ayatSampai: b, predikat: pred
                     });
-                    saveLocal();
-                } else {
-                    showToast('Gagal: ' + json.message, 'error');
+                    localStorage.setItem('d6a', JSON.stringify(data));
                 }
-            } catch (err) {
-                showToast('Error koneksi!', 'error');
+            } catch (e) {
+                toast('Error koneksi', 'error');
             }
 
             btn.disabled = false;
-            btn.innerHTML = '<i class="fas fa-paper-plane"></i> Kirim Setoran';
+            btn.innerHTML = '<i class="fas fa-paper-plane"></i> Kirim';
 
-            // Reset form
+            // Reset HANYA siswa, ayat, predikat - SURAT TETAP
             document.getElementById('selSiswa').value = '';
-            document.getElementById('selSurat').value = '';
-            document.getElementById('ayatFrom').value = '';
-            document.getElementById('ayatTo').value = '';
-            document.getElementById('ayatHint').textContent = '';
-            selectedPredikat = '';
-            document.querySelectorAll('.predikat-item').forEach(i => i.classList.remove('selected'));
+            document.getElementById('ayatA').value = '';
+            document.getElementById('ayatB').value = '';
+            pred = '';
+            document.querySelectorAll('.pred-btn').forEach(b => b.classList.remove('selected'));
 
             updateStats();
         }
 
-        // =============================================
         // HISTORY
-        // =============================================
-        async function refreshData() {
-            const container = document.getElementById('historyContainer');
-            const loading = document.getElementById('loadingBox');
-            const btnRefresh = document.getElementById('btnRefresh');
-            
-            loading.classList.add('show');
-            container.innerHTML = '';
-            btnRefresh.disabled = true;
+        async function refresh() {
+            const list = document.getElementById('histList');
+            const load = document.getElementById('loading');
+            load.classList.remove('hide');
+            list.innerHTML = '';
 
             try {
-                const res = await fetch(`${API_URL}?action=get`);
+                const res = await fetch(`${API}?action=get`);
                 const json = await res.json();
-                
                 if (json.success) {
-                    historyData = json.data || [];
-                    saveLocal();
+                    data = json.data || [];
+                    localStorage.setItem('d6a', JSON.stringify(data));
                 }
-            } catch (err) {
-                console.log('Pakai data lokal');
-            }
+            } catch (e) {}
 
-            loading.classList.remove('show');
-            btnRefresh.disabled = false;
-            renderHistory();
+            load.classList.add('hide');
+            renderHist();
             updateStats();
-            showToast('Data diperbarui', 'info');
         }
 
-        function renderHistory() {
-            const container = document.getElementById('historyContainer');
-
-            if (historyData.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-inbox"></i>
-                        <p>Belum ada riwayat</p>
-                    </div>
-                `;
+        function renderHist() {
+            const list = document.getElementById('histList');
+            if (!data.length) {
+                list.innerHTML = '<div class="empty"><i class="fas fa-inbox"></i><p>Belum ada data</p></div>';
                 return;
             }
 
-            container.innerHTML = historyData.slice().reverse().map(item => `
-                <div class="history-item">
-                    <div class="top-row">
-                        <div>
-                            <div class="name">${item.siswa}</div>
-                            <div class="date">${item.tanggal}</div>
-                        </div>
+            const icons = { Istimewa: '👑', Bagus: '👍', Cukup: '✓', Mengulang: '🔄' };
+            const badges = { Istimewa: 'b1', Bagus: 'b2', Cukup: 'b3', Mengulang: 'b4' };
+
+            list.innerHTML = data.slice().reverse().map(d => `
+                <div class="hist-item">
+                    <div class="top">
+                        <span class="name">${d.siswa}</span>
+                        <span class="date">${d.tanggal}</span>
                     </div>
-                    <div class="detail">
-                        <i class="fas fa-book-open"></i> ${item.noSurat}. ${item.namaSurat} | Ayat ${item.ayatDari} - ${item.ayatSampai}
-                    </div>
-                    <div class="bottom-row">
-                        <span class="badge badge-${item.predikat.toLowerCase()}">${getIcon(item.predikat)} ${item.predikat}</span>
-                        ${currentUser === 'guru' ? `
-                            <button class="del-item-btn" onclick="deleteItem('${item.id}')">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        ` : ''}
+                    <div class="detail"><i class="fas fa-book"></i> ${d.noSurat}. ${d.namaSurat} | Ayat ${d.ayatDari}-${d.ayatSampai}</div>
+                    <div class="bottom">
+                        <span class="badge ${badges[d.predikat]}">${icons[d.predikat]} ${d.predikat}</span>
+                        ${user === 'guru' ? `<button class="del-btn" onclick="delItem('${d.id}')"><i class="fas fa-trash"></i></button>` : ''}
                     </div>
                 </div>
             `).join('');
         }
 
-        function getIcon(p) {
-            const icons = { 'Istimewa': '👑', 'Bagus': '👍', 'Cukup': '✓', 'Mengulang': '🔄' };
-            return icons[p] || '';
-        }
-
-        async function deleteItem(id) {
-            if (!confirm('Hapus data ini?')) return;
-
-            try {
-                await fetch(`${API_URL}?action=delete&id=${id}`);
-            } catch (err) {}
-
-            historyData = historyData.filter(i => i.id !== id);
-            saveLocal();
-            renderHistory();
+        async function delItem(id) {
+            if (!confirm('Hapus?')) return;
+            try { await fetch(`${API}?action=delete&id=${id}`); } catch (e) {}
+            data = data.filter(d => d.id !== id);
+            localStorage.setItem('d6a', JSON.stringify(data));
+            renderHist();
             updateStats();
-            showToast('Data dihapus', 'success');
+            toast('Dihapus', 'success');
         }
 
-        function showDelAllModal() {
-            document.getElementById('modalDelAll').classList.add('show');
-        }
+        function showModal() { document.getElementById('modal').classList.add('show'); }
+        function hideModal() { document.getElementById('modal').classList.remove('show'); }
 
-        function closeModal() {
-            document.getElementById('modalDelAll').classList.remove('show');
-        }
-
-        async function deleteAll() {
-            try {
-                await fetch(`${API_URL}?action=deleteAll`);
-            } catch (err) {}
-
-            historyData = [];
-            saveLocal();
-            renderHistory();
+        async function delAll() {
+            try { await fetch(`${API}?action=deleteAll`); } catch (e) {}
+            data = [];
+            localStorage.setItem('d6a', JSON.stringify(data));
+            renderHist();
             updateStats();
-            closeModal();
-            showToast('Semua data dihapus', 'success');
+            hideModal();
+            toast('Semua dihapus', 'success');
         }
 
-        // =============================================
         // STATS
-        // =============================================
         function updateStats() {
-            const total = historyData.length;
-            document.getElementById('totalSetor').textContent = total;
-            document.getElementById('cntIstimewa').textContent = historyData.filter(d => d.predikat === 'Istimewa').length;
-            document.getElementById('cntBagus').textContent = historyData.filter(d => d.predikat === 'Bagus').length;
-            document.getElementById('cntCukup').textContent = historyData.filter(d => d.predikat === 'Cukup').length;
-            document.getElementById('cntMengulang').textContent = historyData.filter(d => d.predikat === 'Mengulang').length;
+            document.getElementById('totalS').textContent = data.length;
+            document.getElementById('sI').textContent = data.filter(d => d.predikat === 'Istimewa').length;
+            document.getElementById('sB').textContent = data.filter(d => d.predikat === 'Bagus').length;
+            document.getElementById('sC').textContent = data.filter(d => d.predikat === 'Cukup').length;
+            document.getElementById('sM').textContent = data.filter(d => d.predikat === 'Mengulang').length;
 
-            const yasin = calcProgress('Yasin', 83);
-            const waqiah = calcProgress("Al-Waqi'ah", 96);
-            const mulk = calcProgress('Al-Mulk', 30);
+            const calc = (s, t) => {
+                const arr = data.filter(d => d.namaSurat === s && d.predikat !== 'Mengulang');
+                let set = new Set();
+                arr.forEach(d => { for (let i = +d.ayatDari; i <= +d.ayatSampai; i++) set.add(i); });
+                return Math.min(100, Math.round((set.size / t) * 100));
+            };
 
-            document.getElementById('barYasin').style.width = yasin + '%';
-            document.getElementById('pctYasin').textContent = yasin + '%';
-            document.getElementById('barWaqiah').style.width = waqiah + '%';
-            document.getElementById('pctWaqiah').textContent = waqiah + '%';
-            document.getElementById('barMulk').style.width = mulk + '%';
-            document.getElementById('pctMulk').textContent = mulk + '%';
+            const y = calc('Yasin', 83), w = calc("Al-Waqi'ah", 96), m = calc('Al-Mulk', 30);
+            document.getElementById('bY').style.width = y + '%';
+            document.getElementById('pY').textContent = y + '%';
+            document.getElementById('bW').style.width = w + '%';
+            document.getElementById('pW').textContent = w + '%';
+            document.getElementById('bM').style.width = m + '%';
+            document.getElementById('pM').textContent = m + '%';
         }
 
-        function calcProgress(surat, total) {
-            const data = historyData.filter(d => d.namaSurat === surat && d.predikat !== 'Mengulang');
-            let ayats = new Set();
-            data.forEach(d => {
-                for (let i = parseInt(d.ayatDari); i <= parseInt(d.ayatSampai); i++) {
-                    ayats.add(i);
-                }
-            });
-            return Math.min(100, Math.round((ayats.size / total) * 100));
-        }
-
-        // =============================================
         // RECORDING
-        // =============================================
         async function toggleRec() {
             const btn = document.getElementById('recBtn');
             const icon = document.getElementById('recIcon');
             const status = document.getElementById('recStatus');
 
-            if (!isRecording) {
+            if (!isRec) {
                 try {
                     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                    mediaRecorder = new MediaRecorder(stream);
-                    audioChunks = [];
-
-                    mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
-                    mediaRecorder.onstop = () => {
-                        const blob = new Blob(audioChunks, { type: 'audio/wav' });
-                        const url = URL.createObjectURL(blob);
-                        document.getElementById('audioPreview').src = url;
+                    mediaRec = new MediaRecorder(stream);
+                    chunks = [];
+                    mediaRec.ondataavailable = e => chunks.push(e.data);
+                    mediaRec.onstop = () => {
+                        const blob = new Blob(chunks, { type: 'audio/wav' });
+                        document.getElementById('audioPreview').src = URL.createObjectURL(blob);
                         document.getElementById('recPreview').classList.add('show');
                         stream.getTracks().forEach(t => t.stop());
                     };
-
-                    mediaRecorder.start();
-                    isRecording = true;
+                    mediaRec.start();
+                    isRec = true;
                     btn.classList.add('recording');
                     icon.classList.replace('fa-microphone', 'fa-stop');
                     status.textContent = 'Merekam...';
-                    
-                    recSeconds = 0;
-                    recInterval = setInterval(() => {
-                        recSeconds++;
-                        const m = String(Math.floor(recSeconds / 60)).padStart(2, '0');
-                        const s = String(recSeconds % 60).padStart(2, '0');
-                        document.getElementById('recTimer').textContent = `${m}:${s}`;
+                    recSec = 0;
+                    recInt = setInterval(() => {
+                        recSec++;
+                        document.getElementById('recTimer').textContent = 
+                            String(Math.floor(recSec/60)).padStart(2,'0') + ':' + String(recSec%60).padStart(2,'0');
                     }, 1000);
-                } catch (err) {
-                    showToast('Izinkan mikrofon!', 'error');
+                } catch (e) {
+                    toast('Izinkan mikrofon!', 'error');
                 }
             } else {
-                mediaRecorder.stop();
-                isRecording = false;
-                clearInterval(recInterval);
+                mediaRec.stop();
+                isRec = false;
+                clearInterval(recInt);
                 btn.classList.remove('recording');
                 icon.classList.replace('fa-stop', 'fa-microphone');
                 status.textContent = 'Selesai';
@@ -1808,100 +1321,52 @@
         }
 
         function saveRec() {
-            const title = document.getElementById('recTitle').value || `Rekaman ${new Date().toLocaleDateString('id-ID')}`;
-            const url = document.getElementById('audioPreview').src;
-            
-            recordings.push({
+            const title = document.getElementById('recTitle').value || 'Rekaman ' + new Date().toLocaleDateString('id-ID');
+            recs.push({
                 id: Date.now(),
-                title: title,
-                url: url,
+                title,
+                url: document.getElementById('audioPreview').src,
                 date: new Date().toLocaleDateString('id-ID'),
-                duration: document.getElementById('recTimer').textContent
+                dur: document.getElementById('recTimer').textContent
             });
-            
-            saveRecs();
+            localStorage.setItem('r6a', JSON.stringify(recs));
             renderRecs();
-            
             document.getElementById('recTitle').value = '';
             document.getElementById('recPreview').classList.remove('show');
             document.getElementById('recTimer').textContent = '00:00';
             document.getElementById('recStatus').textContent = 'Tekan untuk merekam';
-            
-            showToast('Rekaman disimpan!', 'success');
+            toast('Disimpan!', 'success');
         }
 
         function renderRecs() {
             const list = document.getElementById('recList');
-            if (recordings.length === 0) {
-                list.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-microphone-slash"></i>
-                        <p>Belum ada rekaman</p>
-                    </div>
-                `;
+            if (!recs.length) {
+                list.innerHTML = '<div class="empty"><i class="fas fa-microphone-slash"></i><p>Belum ada rekaman</p></div>';
                 return;
             }
-
-            list.innerHTML = recordings.slice().reverse().map(r => `
+            list.innerHTML = recs.slice().reverse().map(r => `
                 <div class="rec-item">
-                    <button class="play-btn" onclick="playRec('${r.url}')">
-                        <i class="fas fa-play"></i>
-                    </button>
-                    <div class="info">
-                        <h4>${r.title}</h4>
-                        <p>${r.date} • ${r.duration}</p>
-                    </div>
-                    ${currentUser === 'guru' ? `
-                        <button class="del-btn" onclick="delRec(${r.id})">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    ` : ''}
+                    <button class="play" onclick="new Audio('${r.url}').play()"><i class="fas fa-play"></i></button>
+                    <div class="info"><h5>${r.title}</h5><span>${r.date} • ${r.dur}</span></div>
+                    ${user === 'guru' ? `<button class="del" onclick="delRec(${r.id})"><i class="fas fa-trash"></i></button>` : ''}
                 </div>
             `).join('');
         }
 
-        function playRec(url) {
-            new Audio(url).play();
-        }
-
         function delRec(id) {
-            if (confirm('Hapus rekaman?')) {
-                recordings = recordings.filter(r => r.id !== id);
-                saveRecs();
-                renderRecs();
-                showToast('Rekaman dihapus', 'success');
-            }
+            if (!confirm('Hapus rekaman?')) return;
+            recs = recs.filter(r => r.id !== id);
+            localStorage.setItem('r6a', JSON.stringify(recs));
+            renderRecs();
+            toast('Dihapus', 'success');
         }
 
-        // =============================================
-        // LOCAL STORAGE
-        // =============================================
-        function saveLocal() {
-            localStorage.setItem('prestasi6a_data', JSON.stringify(historyData));
-        }
-
-        function loadLocal() {
-            const d = localStorage.getItem('prestasi6a_data');
-            if (d) historyData = JSON.parse(d);
-        }
-
-        function saveRecs() {
-            localStorage.setItem('prestasi6a_recs', JSON.stringify(recordings));
-        }
-
-        function loadRecs() {
-            const d = localStorage.getItem('prestasi6a_recs');
-            if (d) recordings = JSON.parse(d);
-        }
-
-        // =============================================
         // TOAST
-        // =============================================
-        function showToast(msg, type = 'info') {
+        function toast(msg, type = 'info') {
             const t = document.getElementById('toast');
             t.textContent = msg;
             t.className = `toast ${type} show`;
-            setTimeout(() => t.classList.remove('show'), 3000);
+            setTimeout(() => t.classList.remove('show'), 2500);
         }
     </script>
 </body>
