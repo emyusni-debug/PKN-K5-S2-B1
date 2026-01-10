@@ -27,7 +27,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 14px;
+            font-size: 15px;
             background: var(--gray);
         }
 
@@ -39,16 +39,16 @@
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, #922b21, #c0392b, #e74c3c);
-            padding: 15px;
+            padding: 20px;
         }
 
         .login img {
-            width: 70px;
-            height: 70px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
             background: #fff;
-            padding: 5px;
-            margin-bottom: 10px;
+            padding: 6px;
+            margin-bottom: 15px;
             animation: pulse 2s infinite;
         }
 
@@ -59,38 +59,38 @@
 
         .login h1 {
             color: #fff;
-            font-size: 1.1rem;
-            margin-bottom: 3px;
+            font-size: 1.4rem;
+            margin-bottom: 5px;
         }
 
         .login p {
             color: rgba(255,255,255,0.85);
-            font-size: 0.7rem;
-            margin-bottom: 15px;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
         }
 
         .login-box {
             background: #fff;
-            border-radius: 15px;
-            padding: 20px;
+            border-radius: 18px;
+            padding: 28px 24px;
             width: 100%;
-            max-width: 320px;
+            max-width: 340px;
         }
 
         .login-opt {
             display: flex;
-            gap: 8px;
-            margin-bottom: 10px;
+            gap: 12px;
+            margin-bottom: 15px;
         }
 
         .login-opt button {
             flex: 1;
-            padding: 12px 8px;
+            padding: 18px 10px;
             border: 2px solid #eee;
-            border-radius: 10px;
+            border-radius: 14px;
             background: #fff;
             cursor: pointer;
-            font-size: 0.75rem;
+            font-size: 0.9rem;
             font-weight: 600;
             transition: all 0.2s;
         }
@@ -103,13 +103,13 @@
 
         .login-opt button i {
             display: block;
-            font-size: 1.2rem;
-            margin-bottom: 4px;
+            font-size: 1.6rem;
+            margin-bottom: 6px;
         }
 
         .pwd-box {
             display: none;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .pwd-box.show {
@@ -122,10 +122,10 @@
 
         .pwd-box input {
             width: 100%;
-            padding: 10px 40px 10px 12px;
+            padding: 16px 45px 16px 16px;
             border: 2px solid #eee;
-            border-radius: 8px;
-            font-size: 0.9rem;
+            border-radius: 12px;
+            font-size: 1rem;
         }
 
         .pwd-box input:focus {
@@ -135,25 +135,26 @@
 
         .pwd-box .eye {
             position: absolute;
-            right: 12px;
+            right: 16px;
             top: 50%;
             transform: translateY(-50%);
             cursor: pointer;
             color: #999;
+            font-size: 1.1rem;
         }
 
         .btn {
             width: 100%;
-            padding: 12px;
+            padding: 16px;
             border: none;
-            border-radius: 10px;
-            font-size: 0.9rem;
+            border-radius: 12px;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .btn-primary {
@@ -180,18 +181,18 @@
         .header {
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
             color: #fff;
-            padding: 8px 12px;
+            padding: 12px 15px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .header img {
-            width: 32px;
-            height: 32px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             background: #fff;
-            padding: 2px;
+            padding: 3px;
         }
 
         .header .info {
@@ -199,19 +200,19 @@
         }
 
         .header h1 {
-            font-size: 0.85rem;
+            font-size: 1rem;
         }
 
         .header p {
-            font-size: 0.6rem;
+            font-size: 0.7rem;
             opacity: 0.9;
         }
 
         .header .user {
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             background: rgba(255,255,255,0.2);
-            padding: 4px 10px;
-            border-radius: 12px;
+            padding: 6px 14px;
+            border-radius: 15px;
         }
 
         /* TABS */
@@ -223,19 +224,19 @@
 
         .tabs button {
             flex: 1;
-            padding: 8px 4px;
+            padding: 12px 5px;
             border: none;
             background: none;
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             color: #666;
             cursor: pointer;
-            border-bottom: 2px solid transparent;
+            border-bottom: 3px solid transparent;
         }
 
         .tabs button i {
             display: block;
-            font-size: 1rem;
-            margin-bottom: 2px;
+            font-size: 1.3rem;
+            margin-bottom: 4px;
         }
 
         .tabs button.active {
@@ -247,7 +248,7 @@
         .content {
             flex: 1;
             overflow-y: auto;
-            padding: 10px;
+            padding: 14px;
         }
 
         .tab-panel {
@@ -260,24 +261,29 @@
 
         /* FORM */
         .form-row {
-            margin-bottom: 8px;
+            margin-bottom: 14px;
         }
 
         .form-row label {
             display: block;
-            font-size: 0.7rem;
+            font-size: 0.85rem;
             font-weight: 600;
             color: #555;
-            margin-bottom: 4px;
+            margin-bottom: 8px;
+        }
+
+        .form-row label i {
+            color: var(--primary);
+            margin-right: 6px;
         }
 
         .form-row select,
         .form-row input {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 0.85rem;
+            padding: 14px;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            font-size: 1rem;
             background: #fff;
         }
 
@@ -289,7 +295,7 @@
 
         .ayat-row {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             align-items: center;
         }
 
@@ -299,31 +305,32 @@
 
         .ayat-row span {
             color: #999;
+            font-size: 1.2rem;
         }
 
         /* PREDIKAT */
         .predikat-row {
             display: flex;
-            gap: 6px;
+            gap: 8px;
         }
 
         .pred-btn {
             flex: 1;
-            padding: 10px 4px;
+            padding: 14px 6px;
             border: 2px solid #eee;
-            border-radius: 8px;
+            border-radius: 12px;
             background: #fff;
             cursor: pointer;
             text-align: center;
-            font-size: 0.65rem;
-            font-weight: 500;
+            font-size: 0.75rem;
+            font-weight: 600;
             transition: all 0.2s;
         }
 
         .pred-btn i {
             display: block;
-            font-size: 1.1rem;
-            margin-bottom: 2px;
+            font-size: 1.4rem;
+            margin-bottom: 5px;
         }
 
         .pred-btn.selected {
@@ -339,14 +346,14 @@
         /* NOTICE */
         .notice {
             background: #fff3cd;
-            padding: 8px 10px;
-            border-radius: 8px;
-            font-size: 0.75rem;
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-size: 0.85rem;
             color: #856404;
-            margin-bottom: 10px;
+            margin-bottom: 14px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .notice.hide {
@@ -358,26 +365,27 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 8px;
+            margin-bottom: 14px;
         }
 
         .hist-head h3 {
-            font-size: 0.85rem;
+            font-size: 1rem;
             color: var(--primary);
         }
 
         .hist-btns {
             display: flex;
-            gap: 6px;
+            gap: 8px;
         }
 
         .hist-btns button {
-            width: 32px;
-            height: 32px;
+            width: 40px;
+            height: 40px;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             color: #fff;
+            font-size: 1rem;
         }
 
         .hist-btns .ref { background: #3498db; }
@@ -385,33 +393,33 @@
 
         .hist-item {
             background: #fff;
-            border-radius: 10px;
-            padding: 10px;
-            margin-bottom: 8px;
-            border-left: 3px solid var(--primary);
+            border-radius: 14px;
+            padding: 14px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--primary);
         }
 
         .hist-item .top {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .hist-item .name {
             font-weight: 600;
-            font-size: 0.8rem;
+            font-size: 0.95rem;
             color: var(--primary);
         }
 
         .hist-item .date {
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             color: #999;
         }
 
         .hist-item .detail {
-            font-size: 0.75rem;
+            font-size: 0.9rem;
             color: #555;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
         }
 
         .hist-item .bottom {
@@ -421,9 +429,9 @@
         }
 
         .badge {
-            font-size: 0.65rem;
-            padding: 3px 10px;
-            border-radius: 12px;
+            font-size: 0.8rem;
+            padding: 5px 14px;
+            border-radius: 15px;
             font-weight: 600;
         }
 
@@ -437,81 +445,87 @@
             border: none;
             color: var(--primary);
             cursor: pointer;
+            font-size: 1.1rem;
         }
 
         .empty {
             text-align: center;
-            padding: 30px;
+            padding: 40px;
             color: #999;
         }
 
         .empty i {
-            font-size: 2rem;
-            margin-bottom: 8px;
+            font-size: 2.5rem;
+            margin-bottom: 12px;
             opacity: 0.5;
+        }
+
+        .empty p {
+            font-size: 1rem;
         }
 
         /* STATS */
         .stat-main {
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
             color: #fff;
-            border-radius: 12px;
-            padding: 15px;
+            border-radius: 16px;
+            padding: 22px;
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 14px;
         }
 
         .stat-main h2 {
-            font-size: 2rem;
+            font-size: 2.8rem;
         }
 
         .stat-main p {
-            font-size: 0.75rem;
+            font-size: 0.9rem;
             opacity: 0.9;
         }
 
         .stat-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            margin-bottom: 10px;
+            gap: 10px;
+            margin-bottom: 14px;
         }
 
         .stat-item {
             background: #fff;
-            border-radius: 10px;
-            padding: 10px 5px;
+            border-radius: 14px;
+            padding: 14px 6px;
             text-align: center;
         }
 
         .stat-item i {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
         }
 
         .stat-item h4 {
-            font-size: 1.1rem;
+            font-size: 1.4rem;
             color: var(--primary);
+            margin: 4px 0;
         }
 
         .stat-item span {
-            font-size: 0.6rem;
+            font-size: 0.7rem;
             color: #999;
         }
 
         .prog-card {
             background: #fff;
-            border-radius: 10px;
-            padding: 12px;
+            border-radius: 14px;
+            padding: 16px;
         }
 
         .prog-card h4 {
-            font-size: 0.8rem;
+            font-size: 0.95rem;
             color: var(--primary);
-            margin-bottom: 10px;
+            margin-bottom: 14px;
         }
 
         .prog-item {
-            margin-bottom: 10px;
+            margin-bottom: 14px;
         }
 
         .prog-item:last-child {
@@ -521,20 +535,20 @@
         .prog-label {
             display: flex;
             justify-content: space-between;
-            font-size: 0.7rem;
-            margin-bottom: 4px;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
         }
 
         .prog-bar {
-            height: 8px;
+            height: 12px;
             background: #eee;
-            border-radius: 4px;
+            border-radius: 6px;
             overflow: hidden;
         }
 
         .prog-fill {
             height: 100%;
-            border-radius: 4px;
+            border-radius: 6px;
         }
 
         .f1 { background: linear-gradient(90deg, #e74c3c, #f39c12); }
@@ -544,28 +558,28 @@
         /* BIMBINGAN */
         .rec-box {
             background: #fff;
-            border-radius: 12px;
-            padding: 15px;
+            border-radius: 16px;
+            padding: 20px;
             text-align: center;
         }
 
         .rec-box input {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            font-size: 0.85rem;
+            padding: 14px;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            font-size: 1rem;
         }
 
         .rec-btn {
-            width: 70px;
-            height: 70px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
             border: none;
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
             color: #fff;
-            font-size: 1.5rem;
+            font-size: 2rem;
             cursor: pointer;
         }
 
@@ -575,24 +589,25 @@
 
         @keyframes recPulse {
             0%, 100% { box-shadow: 0 0 0 0 rgba(192,57,43,0.7); }
-            50% { box-shadow: 0 0 0 15px rgba(192,57,43,0); }
+            50% { box-shadow: 0 0 0 18px rgba(192,57,43,0); }
         }
 
         .rec-status {
-            margin-top: 8px;
-            font-size: 0.8rem;
+            margin-top: 12px;
+            font-size: 0.95rem;
             color: #666;
         }
 
         .rec-timer {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 600;
             color: var(--primary);
+            margin-top: 5px;
         }
 
         .rec-preview {
             display: none;
-            margin-top: 12px;
+            margin-top: 18px;
         }
 
         .rec-preview.show {
@@ -601,31 +616,32 @@
 
         .rec-preview audio {
             width: 100%;
-            margin-bottom: 10px;
+            margin-bottom: 14px;
         }
 
         .rec-list {
-            margin-top: 12px;
+            margin-top: 18px;
         }
 
         .rec-item {
             background: #f5f5f5;
-            border-radius: 8px;
-            padding: 10px;
-            margin-bottom: 8px;
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .rec-item .play {
-            width: 36px;
-            height: 36px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             border: none;
             background: var(--primary);
             color: #fff;
             cursor: pointer;
+            font-size: 1rem;
         }
 
         .rec-item .info {
@@ -633,12 +649,12 @@
         }
 
         .rec-item .info h5 {
-            font-size: 0.8rem;
-            margin-bottom: 2px;
+            font-size: 0.95rem;
+            margin-bottom: 3px;
         }
 
         .rec-item .info span {
-            font-size: 0.65rem;
+            font-size: 0.8rem;
             color: #999;
         }
 
@@ -647,12 +663,13 @@
             border: none;
             color: var(--primary);
             cursor: pointer;
+            font-size: 1.1rem;
         }
 
         /* FOOTER */
         .footer {
             background: #fff;
-            padding: 8px 12px;
+            padding: 12px 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -662,24 +679,24 @@
         .footer a {
             display: flex;
             align-items: center;
-            gap: 6px;
-            padding: 8px 14px;
+            gap: 8px;
+            padding: 12px 20px;
             background: #25d366;
             color: #fff;
-            border-radius: 20px;
+            border-radius: 25px;
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.95rem;
             font-weight: 500;
         }
 
         .footer .logout {
-            padding: 8px 12px;
+            padding: 12px 16px;
             border: none;
             background: #fef2f1;
             color: var(--primary);
-            border-radius: 20px;
+            border-radius: 25px;
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
         }
 
         /* MODAL */
@@ -700,36 +717,38 @@
 
         .modal-box {
             background: #fff;
-            border-radius: 15px;
-            padding: 20px;
+            border-radius: 18px;
+            padding: 28px 24px;
             width: 100%;
-            max-width: 300px;
+            max-width: 320px;
             text-align: center;
         }
 
         .modal-box h3 {
             color: var(--primary);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
         }
 
         .modal-box p {
             color: #666;
-            font-size: 0.85rem;
-            margin-bottom: 15px;
+            font-size: 1rem;
+            margin-bottom: 20px;
         }
 
         .modal-btns {
             display: flex;
-            gap: 10px;
+            gap: 12px;
         }
 
         .modal-btns button {
             flex: 1;
-            padding: 10px;
+            padding: 14px;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             font-weight: 600;
             cursor: pointer;
+            font-size: 1rem;
         }
 
         .modal-btns .cancel {
@@ -745,13 +764,13 @@
         /* TOAST */
         .toast {
             position: fixed;
-            top: 10px;
+            top: 15px;
             left: 50%;
             transform: translateX(-50%) translateY(-100px);
-            padding: 10px 20px;
-            border-radius: 10px;
+            padding: 14px 28px;
+            border-radius: 12px;
             color: #fff;
-            font-size: 0.85rem;
+            font-size: 1rem;
             z-index: 1000;
             transition: transform 0.3s;
         }
@@ -766,18 +785,18 @@
 
         .loading {
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             color: #999;
         }
 
         .spinner {
-            width: 30px;
-            height: 30px;
-            border: 3px solid #eee;
+            width: 36px;
+            height: 36px;
+            border: 4px solid #eee;
             border-top-color: var(--primary);
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin: 0 auto 10px;
+            margin: 0 auto 12px;
         }
 
         @keyframes spin {
@@ -850,7 +869,7 @@
                     <div class="form-row">
                         <label><i class="fas fa-user"></i> Siswa</label>
                         <select id="selSiswa">
-                            <option value="">-- Pilih --</option>
+                            <option value="">-- Pilih Siswa --</option>
                             <option>1. Abdullah Fatir Ibrahim</option>
                             <option>2. Arfaa Aizzatul Ramadhani</option>
                             <option>3. Ayunda Qurrota A'Yun</option>
@@ -877,15 +896,15 @@
                     <div class="form-row">
                         <label><i class="fas fa-book"></i> Surat</label>
                         <select id="selSurat" onchange="updateMax()">
-                            <option value="">-- Pilih --</option>
-                            <option value="36|Yasin|83">36. Yasin (83)</option>
-                            <option value="56|Al-Waqi'ah|96">56. Al-Waqi'ah (96)</option>
-                            <option value="67|Al-Mulk|30">67. Al-Mulk (30)</option>
+                            <option value="">-- Pilih Surat --</option>
+                            <option value="36|Yasin|83">36. Yasin (83 Ayat)</option>
+                            <option value="56|Al-Waqi'ah|96">56. Al-Waqi'ah (96 Ayat)</option>
+                            <option value="67|Al-Mulk|30">67. Al-Mulk (30 Ayat)</option>
                         </select>
                     </div>
 
                     <div class="form-row">
-                        <label><i class="fas fa-list-ol"></i> Ayat <small id="maxAyat"></small></label>
+                        <label><i class="fas fa-list-ol"></i> Rentang Ayat <small id="maxAyat"></small></label>
                         <div class="ayat-row">
                             <input type="number" id="ayatA" placeholder="Dari" min="1">
                             <span>—</span>
@@ -912,7 +931,7 @@
                     </div>
 
                     <button class="btn btn-primary" id="btnKirim" onclick="kirim()">
-                        <i class="fas fa-paper-plane"></i> Kirim
+                        <i class="fas fa-paper-plane"></i> Kirim Setoran
                     </button>
                 </div>
             </div>
@@ -930,7 +949,7 @@
                     <div class="rec-preview" id="recPreview">
                         <audio id="audioPreview" controls></audio>
                         <button class="btn btn-primary" onclick="saveRec()">
-                            <i class="fas fa-save"></i> Simpan
+                            <i class="fas fa-save"></i> Simpan Rekaman
                         </button>
                     </div>
 
@@ -941,7 +960,7 @@
             <!-- TAB 2: RIWAYAT -->
             <div class="tab-panel" id="panel2">
                 <div class="hist-head">
-                    <h3><i class="fas fa-history"></i> Riwayat</h3>
+                    <h3><i class="fas fa-history"></i> Riwayat Setoran</h3>
                     <div class="hist-btns">
                         <button class="ref" onclick="refresh()" id="btnRef"><i class="fas fa-sync-alt"></i></button>
                         <button class="del hide" id="btnDelAll" onclick="showModal()"><i class="fas fa-trash"></i></button>
@@ -949,7 +968,7 @@
                 </div>
                 <div class="loading hide" id="loading">
                     <div class="spinner"></div>
-                    <p>Memuat...</p>
+                    <p>Memuat data...</p>
                 </div>
                 <div id="histList"></div>
             </div>
@@ -985,17 +1004,17 @@
                 </div>
 
                 <div class="prog-card">
-                    <h4><i class="fas fa-chart-line"></i> Progres Surat</h4>
+                    <h4><i class="fas fa-chart-line"></i> Progres Per Surat</h4>
                     <div class="prog-item">
-                        <div class="prog-label"><span>Yasin</span><span id="pY">0%</span></div>
+                        <div class="prog-label"><span>Yasin (83 Ayat)</span><span id="pY">0%</span></div>
                         <div class="prog-bar"><div class="prog-fill f1" id="bY" style="width:0%"></div></div>
                     </div>
                     <div class="prog-item">
-                        <div class="prog-label"><span>Al-Waqi'ah</span><span id="pW">0%</span></div>
+                        <div class="prog-label"><span>Al-Waqi'ah (96 Ayat)</span><span id="pW">0%</span></div>
                         <div class="prog-bar"><div class="prog-fill f2" id="bW" style="width:0%"></div></div>
                     </div>
                     <div class="prog-item">
-                        <div class="prog-label"><span>Al-Mulk</span><span id="pM">0%</span></div>
+                        <div class="prog-label"><span>Al-Mulk (30 Ayat)</span><span id="pM">0%</span></div>
                         <div class="prog-bar"><div class="prog-fill f3" id="bM" style="width:0%"></div></div>
                     </div>
                 </div>
@@ -1014,7 +1033,7 @@
     <div class="modal" id="modal">
         <div class="modal-box">
             <h3><i class="fas fa-exclamation-triangle" style="color:#e74c3c"></i> Konfirmasi</h3>
-            <p>Hapus semua data?</p>
+            <p>Hapus semua data setoran?</p>
             <div class="modal-btns">
                 <button class="cancel" onclick="hideModal()">Batal</button>
                 <button class="confirm" onclick="delAll()">Hapus</button>
@@ -1023,7 +1042,7 @@
     </div>
 
     <script>
-        // CONFIG - GANTI DENGAN URL ANDA
+        // CONFIG - GANTI DENGAN URL DEPLOYMENT ANDA
         const API = 'https://script.google.com/macros/s/AKfycbxGzLC-yhVdIBrnhD5BvIZnQI9DzpWf672SP8vPQEGJDYO2OaHHgHLVBZ3mA_1Iuobp/exec';
 
         let user = null;
@@ -1141,7 +1160,7 @@
             const a = document.getElementById('ayatA').value;
             const b = document.getElementById('ayatB').value;
 
-            if (!siswa || !surat || !a || !b || !pred) return toast('Lengkapi data!', 'error');
+            if (!siswa || !surat || !a || !b || !pred) return toast('Lengkapi semua data!', 'error');
 
             const p = surat.split('|');
             if (+a > +b) return toast('Ayat awal > akhir!', 'error');
@@ -1160,7 +1179,7 @@
                 const res = await fetch(`${API}?${params}`);
                 const json = await res.json();
                 if (json.success) {
-                    toast('Terkirim!', 'success');
+                    toast('Berhasil terkirim!', 'success');
                     data.push({
                         id: json.id || Date.now().toString(),
                         tanggal: new Date().toLocaleString('id-ID'),
@@ -1169,11 +1188,11 @@
                     localStorage.setItem('d6a', JSON.stringify(data));
                 }
             } catch (e) {
-                toast('Error koneksi', 'error');
+                toast('Error koneksi!', 'error');
             }
 
             btn.disabled = false;
-            btn.innerHTML = '<i class="fas fa-paper-plane"></i> Kirim';
+            btn.innerHTML = '<i class="fas fa-paper-plane"></i> Kirim Setoran';
 
             // Reset HANYA siswa, ayat, predikat - SURAT TETAP
             document.getElementById('selSiswa').value = '';
@@ -1232,13 +1251,13 @@
         }
 
         async function delItem(id) {
-            if (!confirm('Hapus?')) return;
+            if (!confirm('Hapus data ini?')) return;
             try { await fetch(`${API}?action=delete&id=${id}`); } catch (e) {}
             data = data.filter(d => d.id !== id);
             localStorage.setItem('d6a', JSON.stringify(data));
             renderHist();
             updateStats();
-            toast('Dihapus', 'success');
+            toast('Data dihapus', 'success');
         }
 
         function showModal() { document.getElementById('modal').classList.add('show'); }
@@ -1251,7 +1270,7 @@
             renderHist();
             updateStats();
             hideModal();
-            toast('Semua dihapus', 'success');
+            toast('Semua data dihapus', 'success');
         }
 
         // STATS
@@ -1308,7 +1327,7 @@
                             String(Math.floor(recSec/60)).padStart(2,'0') + ':' + String(recSec%60).padStart(2,'0');
                     }, 1000);
                 } catch (e) {
-                    toast('Izinkan mikrofon!', 'error');
+                    toast('Izinkan akses mikrofon!', 'error');
                 }
             } else {
                 mediaRec.stop();
@@ -1316,7 +1335,7 @@
                 clearInterval(recInt);
                 btn.classList.remove('recording');
                 icon.classList.replace('fa-stop', 'fa-microphone');
-                status.textContent = 'Selesai';
+                status.textContent = 'Rekaman selesai';
             }
         }
 
@@ -1335,7 +1354,7 @@
             document.getElementById('recPreview').classList.remove('show');
             document.getElementById('recTimer').textContent = '00:00';
             document.getElementById('recStatus').textContent = 'Tekan untuk merekam';
-            toast('Disimpan!', 'success');
+            toast('Rekaman disimpan!', 'success');
         }
 
         function renderRecs() {
@@ -1354,11 +1373,11 @@
         }
 
         function delRec(id) {
-            if (!confirm('Hapus rekaman?')) return;
+            if (!confirm('Hapus rekaman ini?')) return;
             recs = recs.filter(r => r.id !== id);
             localStorage.setItem('r6a', JSON.stringify(recs));
             renderRecs();
-            toast('Dihapus', 'success');
+            toast('Rekaman dihapus', 'success');
         }
 
         // TOAST
