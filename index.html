@@ -2,54 +2,400 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Prestasi 6A</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏝️ Petualangan Nusantara - Game Keberagaman Suku Bangsa</title>
     <style>
-        :root {
-            --primary: #c0392b;
-            --primary-light: #e74c3c;
-            --white: #ffffff;
-            --gray: #f5f5f5;
-            --dark: #333;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html, body {
-            height: 100%;
-            overflow: hidden;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 15px;
-            background: var(--gray);
-        }
-
-        /* LOGIN */
-        .login {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #922b21, #c0392b, #e74c3c);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a5276 0%, #2ecc71 50%, #e74c3c 100%);
+            min-height: 100vh;
             padding: 20px;
         }
 
-        .login img {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background: #fff;
-            padding: 6px;
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .game-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .game-header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        .game-header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .player-info-bar {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            padding: 15px 20px;
+            border-radius: 15px;
             margin-bottom: 15px;
-            animation: pulse 2s infinite;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .player-details {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .player-name {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .player-absen {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        .timer {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .voice-control {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+        }
+
+        .voice-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .voice-btn.mute {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+        }
+
+        .voice-btn.muted {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+        }
+
+        .voice-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(255,255,255,0.95);
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 60px;
+        }
+
+        .stat-icon {
+            font-size: 1.6em;
+        }
+
+        .stat-value {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .stat-label {
+            font-size: 0.8em;
+            color: #7f8c8d;
+        }
+
+        .game-area {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            min-height: 400px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed #ecf0f1;
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            font-size: 0.95em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-btn.back {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+        }
+
+        .nav-btn.exit {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .login-screen {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .login-title {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .login-subtitle {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+
+        .login-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 3px solid #bdc3c7;
+            border-radius: 12px;
+            font-size: 1.1em;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 18px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(39, 174, 96, 0.4);
+        }
+
+        .menu-screen {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .menu-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .menu-subtitle {
+            color: #7f8c8d;
+            margin-bottom: 25px;
+        }
+
+        .menu-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        .menu-btn {
+            padding: 16px 25px;
+            font-size: 1.05em;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .menu-btn.primary {
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+            color: white;
+        }
+
+        .menu-btn.secondary {
+            background: linear-gradient(135deg, #9b59b6, #e74c3c);
+            color: white;
+        }
+
+        .menu-btn.tertiary {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+        }
+
+        .menu-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .game-screen {
+            display: none;
+        }
+
+        .game-screen.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .quiz-container {
+            text-align: center;
+        }
+
+        .quiz-progress {
+            background: #ecf0f1;
+            height: 12px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .quiz-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            border-radius: 10px;
+            transition: width 0.5s;
+        }
+
+        .quiz-question {
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+        }
+
+        .quiz-image {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+        }
+
+        .quiz-hint {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .quiz-option {
+            padding: 15px;
+            font-size: 1em;
+            border: 3px solid #bdc3c7;
+            border-radius: 12px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quiz-option:hover {
+            border-color: #3498db;
+            background: #ebf5fb;
+            transform: scale(1.02);
+        }
+
+        .quiz-option.correct {
+            border-color: #27ae60;
+            background: #d5f4e6;
+            animation: pulse 0.5s;
+        }
+
+        .quiz-option.wrong {
+            border-color: #e74c3c;
+            background: #fadbd8;
+            animation: shake 0.5s;
         }
 
         @keyframes pulse {
@@ -57,1336 +403,1393 @@
             50% { transform: scale(1.05); }
         }
 
-        .login h1 {
-            color: #fff;
-            font-size: 1.4rem;
-            margin-bottom: 5px;
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
         }
 
-        .login p {
-            color: rgba(255,255,255,0.85);
-            font-size: 0.85rem;
-            margin-bottom: 20px;
+        .matching-container {
+            text-align: center;
         }
 
-        .login-box {
-            background: #fff;
-            border-radius: 18px;
-            padding: 28px 24px;
-            width: 100%;
-            max-width: 340px;
+        .matching-instruction {
+            font-size: 1.1em;
+            color: #2c3e50;
+            margin-bottom: 15px;
         }
 
-        .login-opt {
+        .matching-area {
             display: flex;
-            gap: 12px;
-            margin-bottom: 15px;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .login-opt button {
+        .matching-column {
             flex: 1;
-            padding: 18px 10px;
-            border: 2px solid #eee;
-            border-radius: 14px;
-            background: #fff;
+            min-width: 180px;
+        }
+
+        .matching-column h3 {
+            color: #2c3e50;
+            margin-bottom: 12px;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            font-size: 1em;
+        }
+
+        .matching-item {
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.2s;
+            transition: all 0.3s;
+            font-weight: 500;
+            font-size: 0.95em;
         }
 
-        .login-opt button.active {
-            border-color: var(--primary);
-            background: #fef2f1;
-            color: var(--primary);
+        .matching-item.suku {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
         }
 
-        .login-opt button i {
-            display: block;
-            font-size: 1.6rem;
-            margin-bottom: 6px;
+        .matching-item.daerah {
+            background: linear-gradient(135deg, #e67e22, #d35400);
+            color: white;
         }
 
-        .pwd-box {
-            display: none;
+        .matching-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .matching-item.selected {
+            box-shadow: 0 0 0 4px #f1c40f;
+            transform: scale(1.08);
+        }
+
+        .matching-item.matched {
+            background: linear-gradient(135deg, #27ae60, #2ecc71) !important;
+            cursor: default;
+        }
+
+        .matching-item.wrong-match {
+            animation: shake 0.5s;
+        }
+
+        .map-container {
+            text-align: center;
+        }
+
+        .map-info {
+            font-size: 1.05em;
+            color: #2c3e50;
             margin-bottom: 15px;
         }
 
-        .pwd-box.show {
-            display: block;
+        .indonesia-map {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
         }
 
-        .pwd-box .inp {
+        .island-btn {
+            padding: 15px 10px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            color: white;
+            font-size: 0.9em;
             position: relative;
         }
 
-        .pwd-box input {
-            width: 100%;
-            padding: 16px 45px 16px 16px;
-            border: 2px solid #eee;
-            border-radius: 12px;
-            font-size: 1rem;
+        .island-btn:nth-child(1) { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+        .island-btn:nth-child(2) { background: linear-gradient(135deg, #3498db, #2980b9); }
+        .island-btn:nth-child(3) { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .island-btn:nth-child(4) { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .island-btn:nth-child(5) { background: linear-gradient(135deg, #f39c12, #e67e22); }
+        .island-btn:nth-child(6) { background: linear-gradient(135deg, #1abc9c, #16a085); }
+
+        .island-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
 
-        .pwd-box input:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .pwd-box .eye {
-            position: absolute;
-            right: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: #999;
-            font-size: 1.1rem;
-        }
-
-        .btn {
-            width: 100%;
-            padding: 16px;
-            border: none;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: #fff;
-        }
-
-        .btn-primary:disabled {
+        .island-btn.explored {
             opacity: 0.7;
         }
 
-        /* DASHBOARD */
-        .dashboard {
-            display: none;
-            height: 100%;
-            flex-direction: column;
-        }
-
-        .dashboard.active {
-            display: flex;
-        }
-
-        /* HEADER */
-        .header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: #fff;
-            padding: 12px 15px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .header img {
-            width: 42px;
-            height: 42px;
+        .island-btn.explored::after {
+            content: '✓';
+            position: absolute;
+            top: 5px;
+            right: 8px;
+            background: white;
+            color: #27ae60;
             border-radius: 50%;
-            background: #fff;
-            padding: 3px;
-        }
-
-        .header .info {
-            flex: 1;
-        }
-
-        .header h1 {
-            font-size: 1rem;
-        }
-
-        .header p {
-            font-size: 0.7rem;
-            opacity: 0.9;
-        }
-
-        .header .user {
-            font-size: 0.75rem;
-            background: rgba(255,255,255,0.2);
-            padding: 6px 14px;
-            border-radius: 15px;
-        }
-
-        /* TABS */
-        .tabs {
+            width: 20px;
+            height: 20px;
+            font-size: 0.8em;
             display: flex;
-            background: #fff;
-            border-bottom: 1px solid #eee;
-        }
-
-        .tabs button {
-            flex: 1;
-            padding: 12px 5px;
-            border: none;
-            background: none;
-            font-size: 0.75rem;
-            color: #666;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-        }
-
-        .tabs button i {
-            display: block;
-            font-size: 1.3rem;
-            margin-bottom: 4px;
-        }
-
-        .tabs button.active {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
-        }
-
-        /* CONTENT */
-        .content {
-            flex: 1;
-            overflow-y: auto;
-            padding: 14px;
-        }
-
-        .tab-panel {
-            display: none;
-        }
-
-        .tab-panel.active {
-            display: block;
-        }
-
-        /* FORM */
-        .form-row {
-            margin-bottom: 14px;
-        }
-
-        .form-row label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #555;
-            margin-bottom: 8px;
-        }
-
-        .form-row label i {
-            color: var(--primary);
-            margin-right: 6px;
-        }
-
-        .form-row select,
-        .form-row input {
-            width: 100%;
-            padding: 14px;
-            border: 2px solid #ddd;
-            border-radius: 12px;
-            font-size: 1rem;
-            background: #fff;
-        }
-
-        .form-row select:focus,
-        .form-row input:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .ayat-row {
-            display: flex;
-            gap: 10px;
             align-items: center;
+            justify-content: center;
         }
 
-        .ayat-row input {
-            flex: 1;
-        }
-
-        .ayat-row span {
-            color: #999;
-            font-size: 1.2rem;
-        }
-
-        /* PREDIKAT */
-        .predikat-row {
-            display: flex;
-            gap: 8px;
-        }
-
-        .pred-btn {
-            flex: 1;
-            padding: 14px 6px;
-            border: 2px solid #eee;
-            border-radius: 12px;
-            background: #fff;
-            cursor: pointer;
-            text-align: center;
-            font-size: 0.75rem;
-            font-weight: 600;
-            transition: all 0.2s;
-        }
-
-        .pred-btn i {
+        .island-btn .island-icon {
+            font-size: 1.8em;
             display: block;
-            font-size: 1.4rem;
             margin-bottom: 5px;
         }
 
-        .pred-btn.selected {
-            border-color: var(--primary);
-            background: #fef2f1;
-        }
-
-        .pred-btn.p1 i { color: #f1c40f; }
-        .pred-btn.p2 i { color: #27ae60; }
-        .pred-btn.p3 i { color: #3498db; }
-        .pred-btn.p4 i { color: #e74c3c; }
-
-        /* NOTICE */
-        .notice {
-            background: #fff3cd;
-            padding: 12px 14px;
-            border-radius: 10px;
-            font-size: 0.85rem;
-            color: #856404;
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .notice.hide {
-            display: none;
-        }
-
-        /* HISTORY */
-        .hist-head {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 14px;
-        }
-
-        .hist-head h3 {
-            font-size: 1rem;
-            color: var(--primary);
-        }
-
-        .hist-btns {
-            display: flex;
-            gap: 8px;
-        }
-
-        .hist-btns button {
-            width: 40px;
-            height: 40px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            color: #fff;
-            font-size: 1rem;
-        }
-
-        .hist-btns .ref { background: #3498db; }
-        .hist-btns .del { background: var(--primary); }
-
-        .hist-item {
-            background: #fff;
-            border-radius: 14px;
-            padding: 14px;
-            margin-bottom: 12px;
-            border-left: 4px solid var(--primary);
-        }
-
-        .hist-item .top {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-        }
-
-        .hist-item .name {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--primary);
-        }
-
-        .hist-item .date {
-            font-size: 0.75rem;
-            color: #999;
-        }
-
-        .hist-item .detail {
-            font-size: 0.9rem;
-            color: #555;
-            margin-bottom: 10px;
-        }
-
-        .hist-item .bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .badge {
-            font-size: 0.8rem;
-            padding: 5px 14px;
-            border-radius: 15px;
-            font-weight: 600;
-        }
-
-        .badge.b1 { background: #fef9e7; color: #d4ac0d; }
-        .badge.b2 { background: #e8f8f5; color: #1e8449; }
-        .badge.b3 { background: #ebf5fb; color: #2874a6; }
-        .badge.b4 { background: #fdedec; color: #c0392b; }
-
-        .hist-item .del-btn {
-            background: none;
-            border: none;
-            color: var(--primary);
-            cursor: pointer;
-            font-size: 1.1rem;
-        }
-
-        .empty {
-            text-align: center;
-            padding: 40px;
-            color: #999;
-        }
-
-        .empty i {
-            font-size: 2.5rem;
-            margin-bottom: 12px;
-            opacity: 0.5;
-        }
-
-        .empty p {
-            font-size: 1rem;
-        }
-
-        /* STATS */
-        .stat-main {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: #fff;
-            border-radius: 16px;
-            padding: 22px;
-            text-align: center;
-            margin-bottom: 14px;
-        }
-
-        .stat-main h2 {
-            font-size: 2.8rem;
-        }
-
-        .stat-main p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-bottom: 14px;
-        }
-
-        .stat-item {
-            background: #fff;
-            border-radius: 14px;
-            padding: 14px 6px;
-            text-align: center;
-        }
-
-        .stat-item i {
-            font-size: 1.5rem;
-        }
-
-        .stat-item h4 {
-            font-size: 1.4rem;
-            color: var(--primary);
-            margin: 4px 0;
-        }
-
-        .stat-item span {
-            font-size: 0.7rem;
-            color: #999;
-        }
-
-        .prog-card {
-            background: #fff;
-            border-radius: 14px;
-            padding: 16px;
-        }
-
-        .prog-card h4 {
-            font-size: 0.95rem;
-            color: var(--primary);
-            margin-bottom: 14px;
-        }
-
-        .prog-item {
-            margin-bottom: 14px;
-        }
-
-        .prog-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .prog-label {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            margin-bottom: 6px;
-        }
-
-        .prog-bar {
-            height: 12px;
-            background: #eee;
-            border-radius: 6px;
-            overflow: hidden;
-        }
-
-        .prog-fill {
-            height: 100%;
-            border-radius: 6px;
-        }
-
-        .f1 { background: linear-gradient(90deg, #e74c3c, #f39c12); }
-        .f2 { background: linear-gradient(90deg, #9b59b6, #e74c3c); }
-        .f3 { background: linear-gradient(90deg, #3498db, #1abc9c); }
-
-        /* BIMBINGAN */
-        .rec-box {
-            background: #fff;
-            border-radius: 16px;
+        .island-info-box {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
             padding: 20px;
+            text-align: left;
+            display: none;
+        }
+
+        .island-info-box.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        .island-info-box h3 {
+            color: #2c3e50;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+
+        .suku-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .suku-tag {
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+        }
+
+        .culture-info p {
+            margin: 6px 0;
+            color: #34495e;
+            font-size: 0.95em;
+        }
+
+        .culture-info span {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .puzzle-container {
             text-align: center;
         }
 
-        .rec-box input {
-            width: 100%;
-            padding: 14px;
-            border: 2px solid #ddd;
-            border-radius: 12px;
-            margin-bottom: 18px;
-            font-size: 1rem;
-        }
-
-        .rec-btn {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            border: none;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: #fff;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-
-        .rec-btn.recording {
-            animation: recPulse 1s infinite;
-        }
-
-        @keyframes recPulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(192,57,43,0.7); }
-            50% { box-shadow: 0 0 0 18px rgba(192,57,43,0); }
-        }
-
-        .rec-status {
-            margin-top: 12px;
-            font-size: 0.95rem;
-            color: #666;
-        }
-
-        .rec-timer {
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-top: 5px;
-        }
-
-        .rec-preview {
-            display: none;
-            margin-top: 18px;
-        }
-
-        .rec-preview.show {
-            display: block;
-        }
-
-        .rec-preview audio {
-            width: 100%;
-            margin-bottom: 14px;
-        }
-
-        .rec-list {
-            margin-top: 18px;
-        }
-
-        .rec-item {
-            background: #f5f5f5;
-            border-radius: 12px;
-            padding: 14px;
+        .puzzle-clue {
+            font-size: 1.2em;
+            color: #2c3e50;
             margin-bottom: 10px;
+            padding: 15px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+        }
+
+        .puzzle-hint {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        .puzzle-word {
             display: flex;
-            align-items: center;
-            gap: 12px;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
         }
 
-        .rec-item .play {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: none;
-            background: var(--primary);
-            color: #fff;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .rec-item .info {
-            flex: 1;
-        }
-
-        .rec-item .info h5 {
-            font-size: 0.95rem;
-            margin-bottom: 3px;
-        }
-
-        .rec-item .info span {
-            font-size: 0.8rem;
-            color: #999;
-        }
-
-        .rec-item .del {
-            background: none;
-            border: none;
-            color: var(--primary);
-            cursor: pointer;
-            font-size: 1.1rem;
-        }
-
-        /* FOOTER */
-        .footer {
-            background: #fff;
-            padding: 12px 15px;
+        .letter-box {
+            width: 45px;
+            height: 50px;
+            border: 3px solid #bdc3c7;
+            border-radius: 8px;
+            font-size: 1.4em;
+            font-weight: bold;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #eee;
-        }
-
-        .footer a {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 20px;
-            background: #25d366;
-            color: #fff;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        .footer .logout {
-            padding: 12px 16px;
-            border: none;
-            background: #fef2f1;
-            color: var(--primary);
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1.1rem;
-        }
-
-        /* MODAL */
-        .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.5);
             align-items: center;
             justify-content: center;
-            padding: 20px;
-            z-index: 999;
+            background: white;
+            color: #2c3e50;
+            transition: all 0.3s;
         }
 
-        .modal.show {
+        .letter-box.filled {
+            border-color: #3498db;
+            background: #ebf5fb;
+        }
+
+        .letter-box.correct {
+            border-color: #27ae60;
+            background: #d5f4e6;
+            animation: bounce 0.5s;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .letter-keyboard {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+            max-width: 380px;
+            margin: 0 auto;
         }
 
-        .modal-box {
-            background: #fff;
-            border-radius: 18px;
-            padding: 28px 24px;
-            width: 100%;
-            max-width: 320px;
+        .key-btn {
+            width: 38px;
+            height: 42px;
+            border: none;
+            border-radius: 6px;
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            color: white;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .key-btn:hover {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            transform: translateY(-2px);
+        }
+
+        .key-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .result-container {
             text-align: center;
+            padding: 20px;
         }
 
-        .modal-box h3 {
-            color: var(--primary);
-            margin-bottom: 12px;
-            font-size: 1.2rem;
+        .result-icon {
+            font-size: 4em;
+            margin-bottom: 15px;
         }
 
-        .modal-box p {
-            color: #666;
-            font-size: 1rem;
+        .result-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .result-score {
+            font-size: 2.5em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #f39c12, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .result-message {
+            font-size: 1.1em;
+            color: #7f8c8d;
             margin-bottom: 20px;
         }
 
-        .modal-btns {
-            display: flex;
-            gap: 12px;
+        .stars {
+            font-size: 2.5em;
+            margin-bottom: 15px;
         }
 
-        .modal-btns button {
-            flex: 1;
-            padding: 14px;
-            border: none;
+        .result-details {
+            background: #f8f9fa;
+            padding: 15px;
             border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 1rem;
+            margin-bottom: 15px;
+            text-align: left;
         }
 
-        .modal-btns .cancel {
-            background: #eee;
-            color: #333;
-        }
-
-        .modal-btns .confirm {
-            background: var(--primary);
-            color: #fff;
-        }
-
-        /* TOAST */
-        .toast {
-            position: fixed;
-            top: 15px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-100px);
-            padding: 14px 28px;
-            border-radius: 12px;
-            color: #fff;
-            font-size: 1rem;
-            z-index: 1000;
-            transition: transform 0.3s;
-        }
-
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .toast.success { background: #27ae60; }
-        .toast.error { background: var(--primary); }
-        .toast.info { background: #3498db; }
-
-        .loading {
+        .result-details h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
             text-align: center;
-            padding: 30px;
-            color: #999;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px dashed #ddd;
+            font-size: 0.95em;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .saving-indicator {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border-radius: 10px;
+            margin: 12px 0;
+            font-size: 0.95em;
+        }
+
+        .saving-indicator.active {
+            display: flex;
+        }
+
+        .saving-indicator.success {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+        }
+
+        .saving-indicator.error {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
         }
 
         .spinner {
-            width: 36px;
-            height: 36px;
-            border: 4px solid #eee;
-            border-top-color: var(--primary);
+            width: 18px;
+            height: 18px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top-color: white;
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin: 0 auto 12px;
         }
 
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
 
-        .hide { display: none !important; }
+        .fact-card {
+            background: linear-gradient(135deg, #fff9e6, #fff3cd);
+            border-left: 5px solid #f39c12;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        .fact-card h4 {
+            color: #d68910;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+
+        .fact-card p {
+            color: #6c5b00;
+            font-size: 0.95em;
+        }
+
+        .feedback {
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin: 12px 0;
+            font-size: 1em;
+            animation: fadeIn 0.3s;
+        }
+
+        .feedback.success {
+            background: #d5f4e6;
+            color: #27ae60;
+            border: 2px solid #27ae60;
+        }
+
+        .feedback.error {
+            background: #fadbd8;
+            color: #e74c3c;
+            border: 2px solid #e74c3c;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            font-size: 0.95em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .connection-status {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            z-index: 1000;
+        }
+
+        .connection-status.online {
+            background: #d5f4e6;
+            color: #27ae60;
+        }
+
+        .connection-status.offline {
+            background: #fadbd8;
+            color: #e74c3c;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-box {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 350px;
+            margin: 20px;
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .modal-title {
+            font-size: 1.4em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .modal-message {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .speaking-indicator {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px 15px;
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin: 10px auto;
+            width: fit-content;
+        }
+
+        .speaking-indicator.active {
+            display: flex;
+        }
+
+        .speaking-waves {
+            display: flex;
+            gap: 3px;
+            align-items: center;
+        }
+
+        .speaking-wave {
+            width: 4px;
+            height: 15px;
+            background: white;
+            border-radius: 2px;
+            animation: wave 0.5s ease-in-out infinite;
+        }
+
+        .speaking-wave:nth-child(2) { animation-delay: 0.1s; }
+        .speaking-wave:nth-child(3) { animation-delay: 0.2s; }
+
+        @keyframes wave {
+            0%, 100% { height: 5px; }
+            50% { height: 15px; }
+        }
+
+        @media (max-width: 600px) {
+            .game-header h1 { font-size: 1.6em; }
+            .quiz-options { grid-template-columns: 1fr; }
+            .indonesia-map { grid-template-columns: repeat(2, 1fr); }
+            .matching-area { flex-direction: column; }
+            .letter-box { width: 38px; height: 42px; font-size: 1.2em; }
+            .key-btn { width: 32px; height: 36px; font-size: 0.9em; }
+            .player-info-bar { flex-direction: column; text-align: center; }
+            .nav-buttons { flex-direction: column; gap: 8px; }
+            .nav-btn { justify-content: center; }
+            .voice-control { top: auto; bottom: 10px; left: 10px; }
+        }
     </style>
 </head>
 <body>
-    <div class="toast" id="toast"></div>
+    <div class="voice-control">
+        <button class="voice-btn mute" id="voice-toggle" onclick="toggleVoice()" title="Suara Aktif">🔊</button>
+    </div>
 
-    <!-- LOGIN -->
-    <div class="login" id="loginPage">
-        <img src="https://iili.io/fXljUa1.png" alt="Logo">
-        <h1>📖 Buku Prestasi 6A</h1>
-        <p>MIS Hidayatul Mubtadiin - Undaan Kidul Kudus</p>
+    <div class="connection-status" id="connection-status">⏳ Mengecek...</div>
 
-        <div class="login-box">
-            <div class="login-opt">
-                <button id="optG" onclick="pickOpt('guru')">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    Guru
-                </button>
-                <button id="optM" onclick="pickOpt('murid')">
-                    <i class="fas fa-user-graduate"></i>
-                    Murid
-                </button>
+    <div class="modal-overlay" id="exit-modal">
+        <div class="modal-box">
+            <div class="modal-icon">🚪</div>
+            <h3 class="modal-title">Keluar dari Game?</h3>
+            <p class="modal-message">Progress permainan saat ini akan hilang. Yakin ingin keluar?</p>
+            <div class="modal-buttons">
+                <button class="btn btn-primary" onclick="closeExitModal()">Batal</button>
+                <button class="btn btn-danger" onclick="confirmExit()">Ya, Keluar</button>
             </div>
-
-            <div class="pwd-box" id="pwdBox">
-                <div class="inp">
-                    <input type="password" id="pwd" placeholder="Kata sandi">
-                    <i class="fas fa-eye eye" id="eye" onclick="toggleEye()"></i>
-                </div>
-            </div>
-
-            <button class="btn btn-primary" onclick="login()">
-                <i class="fas fa-sign-in-alt"></i> Masuk
-            </button>
         </div>
     </div>
 
-    <!-- DASHBOARD -->
-    <div class="dashboard" id="dashboard">
-        <div class="header">
-            <img src="https://iili.io/fXljUa1.png" alt="Logo">
-            <div class="info">
-                <h1>📖 Buku Prestasi 6A</h1>
-                <p>MIS Hidayatul Mubtadiin</p>
-            </div>
-            <span class="user" id="userBadge">Guru</span>
+    <div class="container">
+        <div class="game-header">
+            <h1>🏝️ Petualangan Nusantara</h1>
+            <p>Belajar Keberagaman Suku Bangsa Indonesia</p>
         </div>
 
-        <div class="tabs">
-            <button class="active" onclick="switchTab(0)"><i class="fas fa-book-quran"></i>Setor</button>
-            <button id="tabRec" onclick="switchTab(1)"><i class="fas fa-microphone"></i>Rekam</button>
-            <button onclick="switchTab(2)"><i class="fas fa-history"></i>Riwayat</button>
-            <button onclick="switchTab(3)"><i class="fas fa-chart-pie"></i>Statistik</button>
+        <div class="player-info-bar" id="player-info-bar" style="display: none;">
+            <div class="player-details">
+                <div class="player-name" id="display-player-name">👤 Nama</div>
+                <div class="player-absen" id="display-player-absen">📋 No. Absen</div>
+            </div>
+            <div class="timer" id="game-timer">⏱️ 00:00</div>
         </div>
 
-        <div class="content">
-            <!-- TAB 0: SETOR -->
-            <div class="tab-panel active" id="panel0">
-                <div class="notice hide" id="notice">
-                    <i class="fas fa-info-circle"></i> Mode lihat saja
-                </div>
-
-                <div id="formArea">
-                    <div class="form-row">
-                        <label><i class="fas fa-user"></i> Siswa</label>
-                        <select id="selSiswa">
-                            <option value="">-- Pilih Siswa --</option>
-                            <option>1. Abdullah Fatir Ibrahim</option>
-                            <option>2. Arfaa Aizzatul Ramadhani</option>
-                            <option>3. Ayunda Qurrota A'Yun</option>
-                            <option>4. Azkiya Azzahwa</option>
-                            <option>5. Daffa Ibnu Hafidz</option>
-                            <option>6. Fatihatul Husniya</option>
-                            <option>7. Hania Syakira Assyafii</option>
-                            <option>8. Ihda Alya Lathifa</option>
-                            <option>9. Kanaya Afka Uliyani</option>
-                            <option>10. Lathif Akmal 'Azzam</option>
-                            <option>11. Moh Adam Al Assegaf</option>
-                            <option>12. Moh Zaiyani Syarif</option>
-                            <option>13. Muh Althof Adabi</option>
-                            <option>14. Muhammad Habibur Rohman</option>
-                            <option>15. Muhammad Khoirul Mannan</option>
-                            <option>16. Raihan Izzuddin</option>
-                            <option>17. Salwa Khuzama</option>
-                            <option>18. Savira Putri Mahira</option>
-                            <option>19. Septian Norsa Amarta</option>
-                            <option>20. Zaida Ilmania Ramadhani</option>
-                        </select>
-                    </div>
-
-                    <div class="form-row">
-                        <label><i class="fas fa-book"></i> Surat</label>
-                        <select id="selSurat" onchange="updateMax()">
-                            <option value="">-- Pilih Surat --</option>
-                            <option value="36|Yasin|83">36. Yasin (83 Ayat)</option>
-                            <option value="56|Al-Waqi'ah|96">56. Al-Waqi'ah (96 Ayat)</option>
-                            <option value="67|Al-Mulk|30">67. Al-Mulk (30 Ayat)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-row">
-                        <label><i class="fas fa-list-ol"></i> Rentang Ayat <small id="maxAyat"></small></label>
-                        <div class="ayat-row">
-                            <input type="number" id="ayatA" placeholder="Dari" min="1">
-                            <span>—</span>
-                            <input type="number" id="ayatB" placeholder="Sampai" min="1">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <label><i class="fas fa-star"></i> Predikat</label>
-                        <div class="predikat-row">
-                            <button class="pred-btn p1" onclick="pickPred('Istimewa',this)">
-                                <i class="fas fa-crown"></i>Istimewa
-                            </button>
-                            <button class="pred-btn p2" onclick="pickPred('Bagus',this)">
-                                <i class="fas fa-thumbs-up"></i>Bagus
-                            </button>
-                            <button class="pred-btn p3" onclick="pickPred('Cukup',this)">
-                                <i class="fas fa-check"></i>Cukup
-                            </button>
-                            <button class="pred-btn p4" onclick="pickPred('Mengulang',this)">
-                                <i class="fas fa-redo"></i>Ulang
-                            </button>
-                        </div>
-                    </div>
-
-                    <button class="btn btn-primary" id="btnKirim" onclick="kirim()">
-                        <i class="fas fa-paper-plane"></i> Kirim Setoran
-                    </button>
-                </div>
+        <div class="stats-bar" id="stats-bar" style="display: none;">
+            <div class="stat-item">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-value" id="score">0</div>
+                <div class="stat-label">Skor</div>
             </div>
+            <div class="stat-item">
+                <div class="stat-icon">🏆</div>
+                <div class="stat-value" id="level">1</div>
+                <div class="stat-label">Level</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">💎</div>
+                <div class="stat-value" id="gems">0</div>
+                <div class="stat-label">Permata</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">✅</div>
+                <div class="stat-value" id="correct-count">0</div>
+                <div class="stat-label">Benar</div>
+            </div>
+        </div>
 
-            <!-- TAB 1: REKAM -->
-            <div class="tab-panel" id="panel1">
-                <div class="rec-box">
-                    <input type="text" id="recTitle" placeholder="Judul rekaman...">
-                    <button class="rec-btn" id="recBtn" onclick="toggleRec()">
-                        <i class="fas fa-microphone" id="recIcon"></i>
-                    </button>
-                    <p class="rec-status" id="recStatus">Tekan untuk merekam</p>
-                    <p class="rec-timer" id="recTimer">00:00</p>
+        <div class="speaking-indicator" id="speaking-indicator">
+            <div class="speaking-waves">
+                <div class="speaking-wave"></div>
+                <div class="speaking-wave"></div>
+                <div class="speaking-wave"></div>
+            </div>
+            <span>Sedang berbicara...</span>
+        </div>
 
-                    <div class="rec-preview" id="recPreview">
-                        <audio id="audioPreview" controls></audio>
-                        <button class="btn btn-primary" onclick="saveRec()">
-                            <i class="fas fa-save"></i> Simpan Rekaman
+        <div class="game-area">
+            <!-- Login Screen -->
+            <div class="game-screen active" id="login-screen">
+                <div class="login-screen">
+                    <div class="login-title">🎮 Selamat Datang!</div>
+                    <p class="login-subtitle">Masukkan data diri untuk memulai petualangan</p>
+                    
+                    <div class="login-form">
+                        <div class="form-group">
+                            <label for="player-name">👤 Nama Lengkap</label>
+                            <input type="text" id="player-name" placeholder="Masukkan nama lengkap...">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="player-absen">📋 No. Absen</label>
+                            <input type="number" id="player-absen" placeholder="Masukkan nomor absen (1-40)" min="1" max="40">
+                        </div>
+                        
+                        <button class="login-btn" onclick="startSession()">
+                            🚀 Mulai Petualangan!
                         </button>
                     </div>
 
-                    <div class="rec-list" id="recList"></div>
-                </div>
-            </div>
-
-            <!-- TAB 2: RIWAYAT -->
-            <div class="tab-panel" id="panel2">
-                <div class="hist-head">
-                    <h3><i class="fas fa-history"></i> Riwayat Setoran</h3>
-                    <div class="hist-btns">
-                        <button class="ref" onclick="refresh()" id="btnRef"><i class="fas fa-sync-alt"></i></button>
-                        <button class="del hide" id="btnDelAll" onclick="showModal()"><i class="fas fa-trash"></i></button>
-                    </div>
-                </div>
-                <div class="loading hide" id="loading">
-                    <div class="spinner"></div>
-                    <p>Memuat data...</p>
-                </div>
-                <div id="histList"></div>
-            </div>
-
-            <!-- TAB 3: STATISTIK -->
-            <div class="tab-panel" id="panel3">
-                <div class="stat-main">
-                    <h2 id="totalS">0</h2>
-                    <p>Total Setoran</p>
-                </div>
-
-                <div class="stat-grid">
-                    <div class="stat-item">
-                        <i class="fas fa-crown" style="color:#f1c40f"></i>
-                        <h4 id="sI">0</h4>
-                        <span>Istimewa</span>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-thumbs-up" style="color:#27ae60"></i>
-                        <h4 id="sB">0</h4>
-                        <span>Bagus</span>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-check" style="color:#3498db"></i>
-                        <h4 id="sC">0</h4>
-                        <span>Cukup</span>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-redo" style="color:#e74c3c"></i>
-                        <h4 id="sM">0</h4>
-                        <span>Ulang</span>
-                    </div>
-                </div>
-
-                <div class="prog-card">
-                    <h4><i class="fas fa-chart-line"></i> Progres Per Surat</h4>
-                    <div class="prog-item">
-                        <div class="prog-label"><span>Yasin (83 Ayat)</span><span id="pY">0%</span></div>
-                        <div class="prog-bar"><div class="prog-fill f1" id="bY" style="width:0%"></div></div>
-                    </div>
-                    <div class="prog-item">
-                        <div class="prog-label"><span>Al-Waqi'ah (96 Ayat)</span><span id="pW">0%</span></div>
-                        <div class="prog-bar"><div class="prog-fill f2" id="bW" style="width:0%"></div></div>
-                    </div>
-                    <div class="prog-item">
-                        <div class="prog-label"><span>Al-Mulk (30 Ayat)</span><span id="pM">0%</span></div>
-                        <div class="prog-bar"><div class="prog-fill f3" id="bM" style="width:0%"></div></div>
+                    <div class="fact-card">
+                        <h4>🔊 Fitur Suara</h4>
+                        <p>Game ini dilengkapi suara untuk membacakan soal dan memberikan apresiasi. Klik tombol 🔊 untuk mengaktifkan/menonaktifkan suara.</p>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="footer">
-            <a href="https://wa.me/6285176776403" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-            <button class="logout" onclick="logout()"><i class="fas fa-sign-out-alt"></i></button>
-        </div>
-    </div>
+            <!-- Menu Screen -->
+            <div class="game-screen" id="menu-screen">
+                <div class="nav-buttons">
+                    <button class="nav-btn back" onclick="showExitModal()">🚪 Keluar</button>
+                    <button class="nav-btn exit" onclick="logout()">🔄 Ganti Akun</button>
+                </div>
 
-    <!-- MODAL -->
-    <div class="modal" id="modal">
-        <div class="modal-box">
-            <h3><i class="fas fa-exclamation-triangle" style="color:#e74c3c"></i> Konfirmasi</h3>
-            <p>Hapus semua data setoran?</p>
-            <div class="modal-btns">
-                <button class="cancel" onclick="hideModal()">Batal</button>
-                <button class="confirm" onclick="delAll()">Hapus</button>
+                <div class="menu-screen">
+                    <div class="menu-title">🇮🇩 Pilih Permainan!</div>
+                    <p class="menu-subtitle">Selesaikan permainan untuk menyimpan skor</p>
+                    
+                    <div class="menu-buttons">
+                        <button class="menu-btn primary" onclick="startGame('quiz')">🎯 Kuis Nusantara (10 Soal)</button>
+                        <button class="menu-btn secondary" onclick="startGame('matching')">🔗 Cocokkan Suku & Daerah</button>
+                        <button class="menu-btn tertiary" onclick="startGame('map')">🗺️ Jelajahi Peta Indonesia</button>
+                        <button class="menu-btn primary" onclick="startGame('puzzle')">🧩 Tebak Kata Suku</button>
+                    </div>
+
+                    <div class="fact-card">
+                        <h4>💡 Tahukah Kamu?</h4>
+                        <p>Indonesia memiliki lebih dari <strong>1.340 suku bangsa</strong> yang tersebar di <strong>17.000+ pulau</strong>!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Screen -->
+            <div class="game-screen" id="quiz-screen">
+                <div class="nav-buttons">
+                    <button class="nav-btn back" onclick="confirmBackToMenu()">⬅️ Kembali ke Menu</button>
+                    <button class="nav-btn exit" onclick="showExitModal()">🚪 Keluar</button>
+                </div>
+                <div class="quiz-container">
+                    <div class="quiz-progress">
+                        <div class="quiz-progress-bar" id="quiz-progress"></div>
+                    </div>
+                    <div id="quiz-content"></div>
+                </div>
+            </div>
+
+            <!-- Matching Screen -->
+            <div class="game-screen" id="matching-screen">
+                <div class="nav-buttons">
+                    <button class="nav-btn back" onclick="confirmBackToMenu()">⬅️ Kembali ke Menu</button>
+                    <button class="nav-btn exit" onclick="showExitModal()">🚪 Keluar</button>
+                </div>
+                <div class="matching-container">
+                    <h2 style="color: #2c3e50; margin-bottom: 8px; font-size: 1.3em;">🔗 Cocokkan Suku dengan Daerahnya!</h2>
+                    <p class="matching-instruction">Klik suku di kiri, lalu klik daerah yang sesuai di kanan</p>
+                    <div id="matching-feedback"></div>
+                    <div class="matching-area">
+                        <div class="matching-column" id="suku-column"><h3>🧑‍🤝‍🧑 Suku Bangsa</h3></div>
+                        <div class="matching-column" id="daerah-column"><h3>📍 Daerah Asal</h3></div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-warning" onclick="resetMatching()">🔄 Ulangi</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Screen -->
+            <div class="game-screen" id="map-screen">
+                <div class="nav-buttons">
+                    <button class="nav-btn back" onclick="confirmBackToMenu()">⬅️ Kembali ke Menu</button>
+                    <button class="nav-btn exit" onclick="showExitModal()">🚪 Keluar</button>
+                </div>
+                <div class="map-container">
+                    <h2 style="color: #2c3e50; margin-bottom: 8px; font-size: 1.3em;">🗺️ Jelajahi Kepulauan Indonesia</h2>
+                    <p class="map-info" id="map-progress">Klik semua pulau untuk mempelajari suku-sukunya! (0/6)</p>
+                    <div class="indonesia-map" id="indonesia-map">
+                        <button class="island-btn" data-island="sumatera" onclick="showIsland('sumatera')"><span class="island-icon">🏔️</span>Sumatera</button>
+                        <button class="island-btn" data-island="jawa" onclick="showIsland('jawa')"><span class="island-icon">🏛️</span>Jawa</button>
+                        <button class="island-btn" data-island="kalimantan" onclick="showIsland('kalimantan')"><span class="island-icon">🌴</span>Kalimantan</button>
+                        <button class="island-btn" data-island="sulawesi" onclick="showIsland('sulawesi')"><span class="island-icon">⛵</span>Sulawesi</button>
+                        <button class="island-btn" data-island="bali" onclick="showIsland('bali')"><span class="island-icon">🛕</span>Bali & Nusa Tenggara</button>
+                        <button class="island-btn" data-island="papua" onclick="showIsland('papua')"><span class="island-icon">🦜</span>Papua & Maluku</button>
+                    </div>
+                    <div class="island-info-box" id="island-info"></div>
+                </div>
+            </div>
+
+            <!-- Puzzle Screen -->
+            <div class="game-screen" id="puzzle-screen">
+                <div class="nav-buttons">
+                    <button class="nav-btn back" onclick="confirmBackToMenu()">⬅️ Kembali ke Menu</button>
+                    <button class="nav-btn exit" onclick="showExitModal()">🚪 Keluar</button>
+                </div>
+                <div class="puzzle-container">
+                    <h2 style="color: #2c3e50; margin-bottom: 12px; font-size: 1.3em;">🧩 Tebak Nama Suku!</h2>
+                    <div id="puzzle-content"></div>
+                </div>
+            </div>
+
+            <!-- Result Screen -->
+            <div class="game-screen" id="result-screen">
+                <div class="nav-buttons">
+                    <button class="nav-btn back" onclick="backToMenu()">⬅️ Kembali ke Menu</button>
+                    <button class="nav-btn exit" onclick="showExitModal()">🚪 Keluar</button>
+                </div>
+                <div class="result-container">
+                    <div class="result-icon" id="result-icon">🎉</div>
+                    <h2 class="result-title" id="result-title">Luar Biasa!</h2>
+                    <div class="result-score" id="result-score">100</div>
+                    <div class="stars" id="result-stars">⭐⭐⭐</div>
+                    
+                    <div class="result-details">
+                        <h4>📊 Detail Hasil</h4>
+                        <div class="detail-row"><span>Nama:</span><span id="result-nama">-</span></div>
+                        <div class="detail-row"><span>No. Absen:</span><span id="result-absen">-</span></div>
+                        <div class="detail-row"><span>Jenis Game:</span><span id="result-game">-</span></div>
+                        <div class="detail-row"><span>Jawaban Benar:</span><span id="result-benar">-</span></div>
+                        <div class="detail-row"><span>Durasi:</span><span id="result-durasi">-</span></div>
+                    </div>
+                    
+                    <div class="saving-indicator" id="saving-indicator">
+                        <div class="spinner"></div>
+                        <span id="saving-text">Menyimpan skor ke Google Sheets...</span>
+                    </div>
+                    
+                    <p class="result-message" id="result-message">Kamu hebat!</p>
+                    
+                    <div class="fact-card">
+                        <h4>📚 Fakta Menarik</h4>
+                        <p id="random-fact">Indonesia adalah negara kepulauan terbesar di dunia!</p>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button class="btn btn-success" onclick="backToMenu()" id="menu-btn">🏠 Menu Utama</button>
+                        <button class="btn btn-primary" id="replay-btn">🔄 Main Lagi</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        // CONFIG - GANTI DENGAN URL DEPLOYMENT ANDA
-        const API = 'https://script.google.com/macros/s/AKfycbxGzLC-yhVdIBrnhD5BvIZnQI9DzpWf672SP8vPQEGJDYO2OaHHgHLVBZ3mA_1Iuobp/exec';
+        // =====================================================
+        // KONFIGURASI - GANTI DENGAN URL WEB APP ANDA!
+        // =====================================================
+        const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxZKTfMg4Fgjjx2-hlE6HLf0SfAgp8TjAz7CO0lJo1HoobSDIwd7V0Z6Gu9gpnkqFEg/exec';
+        
+        // =====================================================
+        // VOICE SYNTHESIS
+        // =====================================================
+        let voiceEnabled = true;
+        let indonesianVoice = null;
 
-        let user = null;
-        let pred = '';
-        let data = [];
-        let recs = [];
-        let mediaRec = null;
-        let chunks = [];
-        let isRec = false;
-        let recInt = null;
-        let recSec = 0;
-
-        // INIT
-        document.addEventListener('DOMContentLoaded', () => {
-            data = JSON.parse(localStorage.getItem('d6a') || '[]');
-            recs = JSON.parse(localStorage.getItem('r6a') || '[]');
-        });
-
-        // LOGIN
-        function pickOpt(t) {
-            document.getElementById('optG').classList.toggle('active', t === 'guru');
-            document.getElementById('optM').classList.toggle('active', t === 'murid');
-            document.getElementById('pwdBox').classList.toggle('show', t === 'guru');
+        function initVoices() {
+            const voices = speechSynthesis.getVoices();
+            indonesianVoice = voices.find(v => v.lang.includes('id')) || 
+                             voices.find(v => v.lang.includes('en') && v.name.toLowerCase().includes('female')) || 
+                             voices[0];
         }
 
-        function toggleEye() {
-            const p = document.getElementById('pwd');
-            const e = document.getElementById('eye');
-            if (p.type === 'password') {
-                p.type = 'text';
-                e.classList.replace('fa-eye', 'fa-eye-slash');
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = initVoices;
+        }
+        setTimeout(initVoices, 100);
+
+        function speak(text, callback = null) {
+            if (!voiceEnabled || !text) return;
+            speechSynthesis.cancel();
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.voice = indonesianVoice;
+            utterance.lang = 'id-ID';
+            utterance.rate = 0.9;
+            utterance.pitch = 1.1;
+            
+            document.getElementById('speaking-indicator').classList.add('active');
+            
+            utterance.onend = () => {
+                document.getElementById('speaking-indicator').classList.remove('active');
+                if (callback) callback();
+            };
+            
+            utterance.onerror = () => {
+                document.getElementById('speaking-indicator').classList.remove('active');
+            };
+            
+            speechSynthesis.speak(utterance);
+        }
+
+        function stopSpeaking() {
+            speechSynthesis.cancel();
+            document.getElementById('speaking-indicator').classList.remove('active');
+        }
+
+        function toggleVoice() {
+            voiceEnabled = !voiceEnabled;
+            const btn = document.getElementById('voice-toggle');
+            
+            if (voiceEnabled) {
+                btn.textContent = '🔊';
+                btn.classList.remove('muted');
+                btn.classList.add('mute');
+                speak('Suara diaktifkan');
             } else {
-                p.type = 'password';
-                e.classList.replace('fa-eye-slash', 'fa-eye');
+                stopSpeaking();
+                btn.textContent = '🔇';
+                btn.classList.remove('mute');
+                btn.classList.add('muted');
             }
         }
 
-        function login() {
-            const isG = document.getElementById('optG').classList.contains('active');
-            const isM = document.getElementById('optM').classList.contains('active');
+        // =====================================================
+        // APPRECIATION MESSAGES
+        // =====================================================
+        const appreciationCorrect = [
+            "Bagus sekali! Kamu hebat!",
+            "Luar biasa! Jawabanmu benar!",
+            "Sempurna! Terus pertahankan!",
+            "Pintar sekali! Kamu memang juara!",
+            "Hebat! Jawaban yang tepat!",
+            "Mantap! Kamu sangat cerdas!"
+        ];
 
-            if (!isG && !isM) return toast('Pilih jenis user!', 'error');
+        const appreciationWrong = [
+            "Jangan menyerah, coba lagi ya!",
+            "Tidak apa-apa, terus belajar!",
+            "Semangat! Kamu pasti bisa!",
+            "Belum tepat, tapi kamu sudah berusaha!"
+        ];
 
-            if (isG) {
-                if (document.getElementById('pwd').value !== 'emyusni') return toast('Password salah!', 'error');
-                user = 'guru';
-                document.getElementById('userBadge').textContent = 'Guru';
-            } else {
-                user = 'murid';
-                document.getElementById('userBadge').textContent = 'Murid';
+        function getRandomAppreciation(type) {
+            const arr = type === 'correct' ? appreciationCorrect : appreciationWrong;
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        // =====================================================
+        // GAME STATE
+        // =====================================================
+        let gameState = {
+            playerName: '',
+            playerAbsen: '',
+            score: 0,
+            level: 1,
+            gems: 0,
+            currentGame: null,
+            quizIndex: 0,
+            correctAnswers: 0,
+            totalQuestions: 0,
+            selectedSuku: null,
+            startTime: null,
+            exploredIslands: new Set(),
+            puzzlesSolved: 0
+        };
+
+        let timerInterval = null;
+
+        // =====================================================
+        // QUIZ DATA
+        // =====================================================
+        const quizQuestions = [
+            { question: "Suku Batak berasal dari provinsi mana?", image: "🏔️", options: ["Sumatera Utara", "Sumatera Barat", "Jawa Barat", "Kalimantan Timur"], correct: 0, hint: "Daerah sekitar Danau Toba", fact: "Suku Batak terkenal dengan Tor-Tor!" },
+            { question: "Tari Saman berasal dari suku apa?", image: "💃", options: ["Suku Jawa", "Suku Aceh", "Suku Bugis", "Suku Dayak"], correct: 1, hint: "Dari ujung barat Indonesia", fact: "Tari Saman diakui UNESCO!" },
+            { question: "Rumah adat Tongkonan adalah milik suku?", image: "🏠", options: ["Suku Minangkabau", "Suku Toraja", "Suku Asmat", "Suku Baduy"], correct: 1, hint: "Dari Sulawesi Selatan", fact: "Atapnya melengkung seperti tanduk kerbau!" },
+            { question: "Suku Asmat terkenal dengan keahlian?", image: "🎨", options: ["Menenun kain", "Mengukir kayu", "Membuat keramik", "Membatik"], correct: 1, hint: "Dari Papua", fact: "Ukiran Asmat terkenal di dunia!" },
+            { question: "Pakaian adat Ulos digunakan oleh suku?", image: "👘", options: ["Suku Sasak", "Suku Batak", "Suku Dayak", "Suku Bugis"], correct: 1, hint: "Kain tenun dari Sumatera Utara", fact: "Ulos bermakna kasih sayang!" },
+            { question: "Suku Dayak tinggal di pulau?", image: "🌴", options: ["Sulawesi", "Sumatera", "Kalimantan", "Papua"], correct: 2, hint: "Pulau terbesar ketiga di dunia", fact: "Suku Dayak tinggal di rumah panjang!" },
+            { question: "Upacara Ngaben adalah tradisi suku?", image: "🔥", options: ["Suku Bali", "Suku Jawa", "Suku Madura", "Suku Sunda"], correct: 0, hint: "Pulau Dewata", fact: "Ngaben adalah upacara kremasi sakral!" },
+            { question: "Rumah Gadang adalah rumah adat suku?", image: "🏛️", options: ["Suku Batak", "Suku Minangkabau", "Suku Melayu", "Suku Aceh"], correct: 1, hint: "Dari Sumatera Barat", fact: "Rumah Gadang beratap gonjong!" },
+            { question: "Kesenian Reog berasal dari daerah?", image: "🦚", options: ["Bali", "Ponorogo", "Makassar", "Aceh"], correct: 1, hint: "Kota di Jawa Timur", fact: "Topeng Reog bisa 50 kg!" },
+            { question: "Suku Bajo dikenal sebagai?", image: "⛵", options: ["Petani ulung", "Pelaut atau orang laut", "Pemburu", "Peternak"], correct: 1, hint: "Hidup di atas laut", fact: "Suku Bajo bisa menyelam sangat dalam!" }
+        ];
+
+        const matchingData = [
+            { suku: "Suku Jawa", daerah: "Jawa Tengah & Timur" },
+            { suku: "Suku Sunda", daerah: "Jawa Barat" },
+            { suku: "Suku Minangkabau", daerah: "Sumatera Barat" },
+            { suku: "Suku Bugis", daerah: "Sulawesi Selatan" },
+            { suku: "Suku Dayak", daerah: "Kalimantan" },
+            { suku: "Suku Papua", daerah: "Papua" }
+        ];
+
+        const islandData = {
+            sumatera: { name: "Pulau Sumatera", icon: "🏔️", suku: ["Aceh", "Batak", "Minangkabau", "Melayu", "Lampung"], rumahAdat: "Rumah Gadang, Rumah Bolon", tarianKhas: "Tari Saman, Tari Piring", makananKhas: "Rendang, Gulai" },
+            jawa: { name: "Pulau Jawa", icon: "🏛️", suku: ["Jawa", "Sunda", "Betawi", "Madura"], rumahAdat: "Joglo, Julang Ngapak", tarianKhas: "Tari Gambyong, Jaipong", makananKhas: "Gudeg, Soto" },
+            kalimantan: { name: "Pulau Kalimantan", icon: "🌴", suku: ["Dayak", "Banjar", "Kutai"], rumahAdat: "Rumah Betang", tarianKhas: "Tari Hudoq", makananKhas: "Soto Banjar" },
+            sulawesi: { name: "Pulau Sulawesi", icon: "⛵", suku: ["Bugis", "Makassar", "Toraja", "Minahasa"], rumahAdat: "Tongkonan", tarianKhas: "Tari Pakarena", makananKhas: "Coto Makassar" },
+            bali: { name: "Bali & Nusa Tenggara", icon: "🛕", suku: ["Bali", "Sasak", "Sumba"], rumahAdat: "Gapura Candi Bentar", tarianKhas: "Tari Kecak, Pendet", makananKhas: "Ayam Betutu" },
+            papua: { name: "Papua & Maluku", icon: "🦜", suku: ["Asmat", "Dani", "Ambon"], rumahAdat: "Honai", tarianKhas: "Tari Perang", makananKhas: "Papeda" }
+        };
+
+        const puzzleWords = [
+            { word: "BATAK", clue: "Suku dari Sumatera Utara dengan kain Ulos", hint: "5 huruf, B" },
+            { word: "DAYAK", clue: "Suku asli Kalimantan di rumah Betang", hint: "5 huruf, D" },
+            { word: "ASMAT", clue: "Suku Papua ahli ukir kayu", hint: "5 huruf, A" },
+            { word: "TORAJA", clue: "Suku Sulawesi dengan Tongkonan", hint: "6 huruf, T" },
+            { word: "BUGIS", clue: "Suku pelaut dari Sulawesi Selatan", hint: "5 huruf, B" },
+            { word: "SUNDA", clue: "Suku dari Jawa Barat", hint: "5 huruf, S" }
+        ];
+
+        const randomFacts = [
+            "Indonesia punya lebih dari 700 bahasa daerah!",
+            "Suku Jawa adalah suku terbesar di Indonesia!",
+            "Batik Indonesia diakui UNESCO!",
+            "Bhinneka Tunggal Ika artinya berbeda-beda tapi tetap satu!",
+            "Indonesia punya lebih dari 17.000 pulau!"
+        ];
+
+        // =====================================================
+        // HELPER FUNCTIONS
+        // =====================================================
+        function updateStats() {
+            document.getElementById('score').textContent = gameState.score;
+            document.getElementById('level').textContent = gameState.level;
+            document.getElementById('gems').textContent = gameState.gems;
+            document.getElementById('correct-count').textContent = gameState.correctAnswers;
+        }
+
+        function showScreen(screenId) {
+            stopSpeaking();
+            document.querySelectorAll('.game-screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+        }
+
+        function addScore(points) {
+            gameState.score += points;
+            if (gameState.score >= gameState.level * 100) {
+                gameState.level++;
+                gameState.gems += 5;
             }
+            updateStats();
+        }
 
-            document.getElementById('loginPage').style.display = 'none';
-            document.getElementById('dashboard').classList.add('active');
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
 
-            if (user === 'murid') {
-                document.getElementById('notice').classList.remove('hide');
-                document.getElementById('formArea').style.opacity = '0.5';
-                document.getElementById('formArea').style.pointerEvents = 'none';
-                document.getElementById('tabRec').classList.add('hide');
-                document.getElementById('btnDelAll').classList.add('hide');
-            } else {
-                document.getElementById('notice').classList.add('hide');
-                document.getElementById('formArea').style.opacity = '1';
-                document.getElementById('formArea').style.pointerEvents = 'auto';
-                document.getElementById('tabRec').classList.remove('hide');
-                document.getElementById('btnDelAll').classList.remove('hide');
-            }
+        function startTimer() {
+            gameState.startTime = Date.now();
+            timerInterval = setInterval(() => {
+                const elapsed = Math.floor((Date.now() - gameState.startTime) / 1000);
+                document.getElementById('game-timer').textContent = `⏱️ ${formatTime(elapsed)}`;
+            }, 1000);
+        }
 
-            refresh();
-            toast('Selamat datang!', 'success');
+        function stopTimer() {
+            if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+            return Math.floor((Date.now() - gameState.startTime) / 1000);
+        }
+
+        function getGameName(type) {
+            const names = { 'quiz': 'Kuis Nusantara', 'matching': 'Cocokkan Suku & Daerah', 'map': 'Jelajahi Peta', 'puzzle': 'Tebak Kata Suku' };
+            return names[type] || type;
+        }
+
+        // =====================================================
+        // MODAL FUNCTIONS
+        // =====================================================
+        function showExitModal() { document.getElementById('exit-modal').classList.add('active'); }
+        function closeExitModal() { document.getElementById('exit-modal').classList.remove('active'); }
+        
+        function confirmExit() {
+            closeExitModal();
+            stopTimer();
+            stopSpeaking();
+            gameState = { playerName: '', playerAbsen: '', score: 0, level: 1, gems: 0, currentGame: null, quizIndex: 0, correctAnswers: 0, totalQuestions: 0, selectedSuku: null, startTime: null, exploredIslands: new Set(), puzzlesSolved: 0 };
+            updateStats();
+            document.getElementById('player-info-bar').style.display = 'none';
+            document.getElementById('stats-bar').style.display = 'none';
+            showScreen('login-screen');
+        }
+
+        function confirmBackToMenu() {
+            if (confirm('Kembali ke menu? Progress akan hilang.')) backToMenu();
+        }
+
+        function backToMenu() {
+            stopTimer();
+            stopSpeaking();
+            showScreen('menu-screen');
+            speak('Silakan pilih permainan!');
         }
 
         function logout() {
-            user = null;
-            document.getElementById('loginPage').style.display = 'flex';
-            document.getElementById('dashboard').classList.remove('active');
-            document.getElementById('pwd').value = '';
-            document.querySelectorAll('.login-opt button').forEach(b => b.classList.remove('active'));
-            document.getElementById('pwdBox').classList.remove('show');
-            switchTab(0);
+            if (confirm('Ganti akun?')) confirmExit();
         }
 
-        // TABS
-        function switchTab(i) {
-            document.querySelectorAll('.tabs button').forEach((b, idx) => b.classList.toggle('active', idx === i));
-            document.querySelectorAll('.tab-panel').forEach((p, idx) => p.classList.toggle('active', idx === i));
-            if (i === 2) refresh();
-            if (i === 3) updateStats();
-        }
-
-        // FORM
-        function updateMax() {
-            const v = document.getElementById('selSurat').value;
-            const h = document.getElementById('maxAyat');
-            if (v) {
-                const m = v.split('|')[2];
-                h.textContent = `(maks ${m})`;
-                document.getElementById('ayatA').max = m;
-                document.getElementById('ayatB').max = m;
-            } else {
-                h.textContent = '';
+        // =====================================================
+        // CONNECTION CHECK
+        // =====================================================
+        async function checkConnection() {
+            const statusEl = document.getElementById('connection-status');
+            try {
+                const response = await fetch(GOOGLE_SHEETS_URL);
+                statusEl.textContent = '🟢 Online';
+                statusEl.className = 'connection-status online';
+            } catch (error) {
+                statusEl.textContent = '🔴 Offline';
+                statusEl.className = 'connection-status offline';
             }
         }
 
-        function pickPred(v, el) {
-            document.querySelectorAll('.pred-btn').forEach(b => b.classList.remove('selected'));
+        // =====================================================
+        // SESSION & LOGIN
+        // =====================================================
+        function startSession() {
+            const nameInput = document.getElementById('player-name');
+            const absenInput = document.getElementById('player-absen');
+            
+            if (!nameInput.value.trim()) { alert('Masukkan nama lengkap!'); nameInput.focus(); return; }
+            if (!absenInput.value || absenInput.value < 1 || absenInput.value > 40) { alert('Masukkan nomor absen (1-40)!'); absenInput.focus(); return; }
+            
+            gameState.playerName = nameInput.value.trim();
+            gameState.playerAbsen = absenInput.value;
+            
+            document.getElementById('display-player-name').textContent = `👤 ${gameState.playerName}`;
+            document.getElementById('display-player-absen').textContent = `📋 No. ${gameState.playerAbsen}`;
+            
+            document.getElementById('player-info-bar').style.display = 'flex';
+            document.getElementById('stats-bar').style.display = 'flex';
+            
+            showScreen('menu-screen');
+            speak(`Halo ${gameState.playerName}! Selamat datang di Petualangan Nusantara. Silakan pilih permainan!`);
+        }
+
+        // =====================================================
+        // START GAME
+        // =====================================================
+        function startGame(gameType) {
+            gameState.currentGame = gameType;
+            gameState.quizIndex = 0;
+            gameState.correctAnswers = 0;
+            gameState.exploredIslands = new Set();
+            gameState.puzzlesSolved = 0;
+            
+            document.querySelectorAll('.island-btn').forEach(btn => btn.classList.remove('explored'));
+            
+            switch(gameType) {
+                case 'quiz': gameState.totalQuestions = quizQuestions.length; break;
+                case 'matching': gameState.totalQuestions = matchingData.length; break;
+                case 'map': gameState.totalQuestions = 6; break;
+                case 'puzzle': gameState.totalQuestions = 3; break;
+            }
+            
+            startTimer();
+            updateStats();
+            
+            switch(gameType) {
+                case 'quiz': loadQuizQuestion(); showScreen('quiz-screen'); break;
+                case 'matching': loadMatchingGame(); showScreen('matching-screen'); speak('Cocokkan suku dengan daerah asalnya!'); break;
+                case 'map': document.getElementById('map-progress').textContent = 'Klik semua pulau! (0/6)'; document.getElementById('island-info').innerHTML = ''; document.getElementById('island-info').classList.remove('active'); showScreen('map-screen'); speak('Mari jelajahi kepulauan Indonesia!'); break;
+                case 'puzzle': loadPuzzleGame(); showScreen('puzzle-screen'); break;
+            }
+        }
+
+        // =====================================================
+        // QUIZ GAME
+        // =====================================================
+        function loadQuizQuestion() {
+            const q = quizQuestions[gameState.quizIndex];
+            document.getElementById('quiz-progress').style.width = `${((gameState.quizIndex + 1) / quizQuestions.length) * 100}%`;
+            
+            document.getElementById('quiz-content').innerHTML = `
+                <div class="quiz-image">${q.image}</div>
+                <div class="quiz-question">Soal ${gameState.quizIndex + 1}/${quizQuestions.length}: ${q.question}</div>
+                <p class="quiz-hint">💡 ${q.hint}</p>
+                <div class="quiz-options">${q.options.map((o, i) => `<button class="quiz-option" onclick="checkAnswer(${i})">${o}</button>`).join('')}</div>
+                <div id="quiz-feedback"></div>
+            `;
+            
+            speak(`Soal nomor ${gameState.quizIndex + 1}. ${q.question}. Petunjuk: ${q.hint}`);
+        }
+
+        function checkAnswer(selected) {
+            const q = quizQuestions[gameState.quizIndex];
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach(opt => opt.style.pointerEvents = 'none');
+            
+            if (selected === q.correct) {
+                options[selected].classList.add('correct');
+                gameState.correctAnswers++;
+                addScore(10);
+                gameState.gems++;
+                document.getElementById('quiz-feedback').innerHTML = `<div class="feedback success">✅ Benar! +10 poin 💎<br><small>${q.fact}</small></div>`;
+                speak(`${getRandomAppreciation('correct')} ${q.fact}`);
+            } else {
+                options[selected].classList.add('wrong');
+                options[q.correct].classList.add('correct');
+                document.getElementById('quiz-feedback').innerHTML = `<div class="feedback error">❌ Jawaban: <strong>${q.options[q.correct]}</strong><br><small>${q.fact}</small></div>`;
+                speak(`${getRandomAppreciation('wrong')} Jawaban yang benar adalah ${q.options[q.correct]}.`);
+            }
+            
+            setTimeout(() => { gameState.quizIndex++; gameState.quizIndex < quizQuestions.length ? loadQuizQuestion() : showResult(); }, 4000);
+            updateStats();
+        }
+
+        // =====================================================
+        // MATCHING GAME
+        // =====================================================
+        let matchedCount = 0;
+        
+        function loadMatchingGame() {
+            matchedCount = 0;
+            const shuffledSuku = [...matchingData].sort(() => Math.random() - 0.5);
+            const shuffledDaerah = [...matchingData].sort(() => Math.random() - 0.5);
+            
+            document.getElementById('suku-column').innerHTML = `<h3>🧑‍🤝‍🧑 Suku Bangsa</h3>` + shuffledSuku.map(i => `<div class="matching-item suku" data-suku="${i.suku}" onclick="selectSuku(this)">${i.suku}</div>`).join('');
+            document.getElementById('daerah-column').innerHTML = `<h3>📍 Daerah Asal</h3>` + shuffledDaerah.map(i => `<div class="matching-item daerah" data-daerah="${i.daerah}" data-correct="${i.suku}" onclick="selectDaerah(this)">${i.daerah}</div>`).join('');
+            document.getElementById('matching-feedback').innerHTML = '';
+            gameState.selectedSuku = null;
+        }
+
+        function selectSuku(el) {
+            if (el.classList.contains('matched')) return;
+            document.querySelectorAll('.matching-item.suku').forEach(i => i.classList.remove('selected'));
             el.classList.add('selected');
-            pred = v;
+            gameState.selectedSuku = el.dataset.suku;
+            speak(`${el.dataset.suku} dipilih`);
         }
 
-        async function kirim() {
-            const siswa = document.getElementById('selSiswa').value;
-            const surat = document.getElementById('selSurat').value;
-            const a = document.getElementById('ayatA').value;
-            const b = document.getElementById('ayatB').value;
-
-            if (!siswa || !surat || !a || !b || !pred) return toast('Lengkapi semua data!', 'error');
-
-            const p = surat.split('|');
-            if (+a > +b) return toast('Ayat awal > akhir!', 'error');
-            if (+b > +p[2]) return toast('Melebihi jumlah ayat!', 'error');
-
-            const btn = document.getElementById('btnKirim');
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
-
-            const params = new URLSearchParams({
-                action: 'add',
-                siswa, noSurat: p[0], namaSurat: p[1], ayatDari: a, ayatSampai: b, predikat: pred
-            });
-
-            try {
-                const res = await fetch(`${API}?${params}`);
-                const json = await res.json();
-                if (json.success) {
-                    toast('Berhasil terkirim!', 'success');
-                    data.push({
-                        id: json.id || Date.now().toString(),
-                        tanggal: new Date().toLocaleString('id-ID'),
-                        siswa, noSurat: p[0], namaSurat: p[1], ayatDari: a, ayatSampai: b, predikat: pred
-                    });
-                    localStorage.setItem('d6a', JSON.stringify(data));
-                }
-            } catch (e) {
-                toast('Error koneksi!', 'error');
-            }
-
-            btn.disabled = false;
-            btn.innerHTML = '<i class="fas fa-paper-plane"></i> Kirim Setoran';
-
-            // Reset HANYA siswa, ayat, predikat - SURAT TETAP
-            document.getElementById('selSiswa').value = '';
-            document.getElementById('ayatA').value = '';
-            document.getElementById('ayatB').value = '';
-            pred = '';
-            document.querySelectorAll('.pred-btn').forEach(b => b.classList.remove('selected'));
-
-            updateStats();
-        }
-
-        // HISTORY
-        async function refresh() {
-            const list = document.getElementById('histList');
-            const load = document.getElementById('loading');
-            load.classList.remove('hide');
-            list.innerHTML = '';
-
-            try {
-                const res = await fetch(`${API}?action=get`);
-                const json = await res.json();
-                if (json.success) {
-                    data = json.data || [];
-                    localStorage.setItem('d6a', JSON.stringify(data));
-                }
-            } catch (e) {}
-
-            load.classList.add('hide');
-            renderHist();
-            updateStats();
-        }
-
-        function renderHist() {
-            const list = document.getElementById('histList');
-            if (!data.length) {
-                list.innerHTML = '<div class="empty"><i class="fas fa-inbox"></i><p>Belum ada data</p></div>';
-                return;
-            }
-
-            const icons = { Istimewa: '👑', Bagus: '👍', Cukup: '✓', Mengulang: '🔄' };
-            const badges = { Istimewa: 'b1', Bagus: 'b2', Cukup: 'b3', Mengulang: 'b4' };
-
-            list.innerHTML = data.slice().reverse().map(d => `
-                <div class="hist-item">
-                    <div class="top">
-                        <span class="name">${d.siswa}</span>
-                        <span class="date">${d.tanggal}</span>
-                    </div>
-                    <div class="detail"><i class="fas fa-book"></i> ${d.noSurat}. ${d.namaSurat} | Ayat ${d.ayatDari}-${d.ayatSampai}</div>
-                    <div class="bottom">
-                        <span class="badge ${badges[d.predikat]}">${icons[d.predikat]} ${d.predikat}</span>
-                        ${user === 'guru' ? `<button class="del-btn" onclick="delItem('${d.id}')"><i class="fas fa-trash"></i></button>` : ''}
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        async function delItem(id) {
-            if (!confirm('Hapus data ini?')) return;
-            try { await fetch(`${API}?action=delete&id=${id}`); } catch (e) {}
-            data = data.filter(d => d.id !== id);
-            localStorage.setItem('d6a', JSON.stringify(data));
-            renderHist();
-            updateStats();
-            toast('Data dihapus', 'success');
-        }
-
-        function showModal() { document.getElementById('modal').classList.add('show'); }
-        function hideModal() { document.getElementById('modal').classList.remove('show'); }
-
-        async function delAll() {
-            try { await fetch(`${API}?action=deleteAll`); } catch (e) {}
-            data = [];
-            localStorage.setItem('d6a', JSON.stringify(data));
-            renderHist();
-            updateStats();
-            hideModal();
-            toast('Semua data dihapus', 'success');
-        }
-
-        // STATS
-        function updateStats() {
-            document.getElementById('totalS').textContent = data.length;
-            document.getElementById('sI').textContent = data.filter(d => d.predikat === 'Istimewa').length;
-            document.getElementById('sB').textContent = data.filter(d => d.predikat === 'Bagus').length;
-            document.getElementById('sC').textContent = data.filter(d => d.predikat === 'Cukup').length;
-            document.getElementById('sM').textContent = data.filter(d => d.predikat === 'Mengulang').length;
-
-            const calc = (s, t) => {
-                const arr = data.filter(d => d.namaSurat === s && d.predikat !== 'Mengulang');
-                let set = new Set();
-                arr.forEach(d => { for (let i = +d.ayatDari; i <= +d.ayatSampai; i++) set.add(i); });
-                return Math.min(100, Math.round((set.size / t) * 100));
-            };
-
-            const y = calc('Yasin', 83), w = calc("Al-Waqi'ah", 96), m = calc('Al-Mulk', 30);
-            document.getElementById('bY').style.width = y + '%';
-            document.getElementById('pY').textContent = y + '%';
-            document.getElementById('bW').style.width = w + '%';
-            document.getElementById('pW').textContent = w + '%';
-            document.getElementById('bM').style.width = m + '%';
-            document.getElementById('pM').textContent = m + '%';
-        }
-
-        // RECORDING
-        async function toggleRec() {
-            const btn = document.getElementById('recBtn');
-            const icon = document.getElementById('recIcon');
-            const status = document.getElementById('recStatus');
-
-            if (!isRec) {
-                try {
-                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                    mediaRec = new MediaRecorder(stream);
-                    chunks = [];
-                    mediaRec.ondataavailable = e => chunks.push(e.data);
-                    mediaRec.onstop = () => {
-                        const blob = new Blob(chunks, { type: 'audio/wav' });
-                        document.getElementById('audioPreview').src = URL.createObjectURL(blob);
-                        document.getElementById('recPreview').classList.add('show');
-                        stream.getTracks().forEach(t => t.stop());
-                    };
-                    mediaRec.start();
-                    isRec = true;
-                    btn.classList.add('recording');
-                    icon.classList.replace('fa-microphone', 'fa-stop');
-                    status.textContent = 'Merekam...';
-                    recSec = 0;
-                    recInt = setInterval(() => {
-                        recSec++;
-                        document.getElementById('recTimer').textContent = 
-                            String(Math.floor(recSec/60)).padStart(2,'0') + ':' + String(recSec%60).padStart(2,'0');
-                    }, 1000);
-                } catch (e) {
-                    toast('Izinkan akses mikrofon!', 'error');
-                }
+        function selectDaerah(el) {
+            if (!gameState.selectedSuku || el.classList.contains('matched')) return;
+            
+            if (gameState.selectedSuku === el.dataset.correct) {
+                el.classList.add('matched');
+                document.querySelector(`[data-suku="${gameState.selectedSuku}"]`).classList.add('matched');
+                document.querySelector(`[data-suku="${gameState.selectedSuku}"]`).classList.remove('selected');
+                matchedCount++;
+                gameState.correctAnswers++;
+                addScore(15);
+                gameState.gems += 2;
+                document.getElementById('matching-feedback').innerHTML = `<div class="feedback success">✅ Cocok! (${matchedCount}/${matchingData.length})</div>`;
+                speak(getRandomAppreciation('correct'));
+                if (matchedCount === matchingData.length) setTimeout(() => showResult(), 1500);
             } else {
-                mediaRec.stop();
-                isRec = false;
-                clearInterval(recInt);
-                btn.classList.remove('recording');
-                icon.classList.replace('fa-stop', 'fa-microphone');
-                status.textContent = 'Rekaman selesai';
+                el.classList.add('wrong-match');
+                setTimeout(() => el.classList.remove('wrong-match'), 500);
+                document.getElementById('matching-feedback').innerHTML = `<div class="feedback error">❌ Tidak cocok!</div>`;
+                speak(getRandomAppreciation('wrong'));
             }
+            
+            gameState.selectedSuku = null;
+            updateStats();
         }
 
-        function saveRec() {
-            const title = document.getElementById('recTitle').value || 'Rekaman ' + new Date().toLocaleDateString('id-ID');
-            recs.push({
-                id: Date.now(),
-                title,
-                url: document.getElementById('audioPreview').src,
-                date: new Date().toLocaleDateString('id-ID'),
-                dur: document.getElementById('recTimer').textContent
-            });
-            localStorage.setItem('r6a', JSON.stringify(recs));
-            renderRecs();
-            document.getElementById('recTitle').value = '';
-            document.getElementById('recPreview').classList.remove('show');
-            document.getElementById('recTimer').textContent = '00:00';
-            document.getElementById('recStatus').textContent = 'Tekan untuk merekam';
-            toast('Rekaman disimpan!', 'success');
+        function resetMatching() {
+            gameState.correctAnswers = 0;
+            updateStats();
+            loadMatchingGame();
+            speak('Permainan direset!');
         }
 
-        function renderRecs() {
-            const list = document.getElementById('recList');
-            if (!recs.length) {
-                list.innerHTML = '<div class="empty"><i class="fas fa-microphone-slash"></i><p>Belum ada rekaman</p></div>';
-                return;
+        // =====================================================
+        // MAP ADVENTURE
+        // =====================================================
+        function showIsland(island) {
+            const data = islandData[island];
+            const btn = document.querySelector(`[data-island="${island}"]`);
+            
+            if (!gameState.exploredIslands.has(island)) {
+                gameState.exploredIslands.add(island);
+                gameState.correctAnswers++;
+                addScore(10);
+                gameState.gems++;
+                btn.classList.add('explored');
+                document.getElementById('map-progress').textContent = `Klik semua pulau! (${gameState.exploredIslands.size}/6)`;
             }
-            list.innerHTML = recs.slice().reverse().map(r => `
-                <div class="rec-item">
-                    <button class="play" onclick="new Audio('${r.url}').play()"><i class="fas fa-play"></i></button>
-                    <div class="info"><h5>${r.title}</h5><span>${r.date} • ${r.dur}</span></div>
-                    ${user === 'guru' ? `<button class="del" onclick="delRec(${r.id})"><i class="fas fa-trash"></i></button>` : ''}
+            
+            document.getElementById('island-info').innerHTML = `
+                <h3>${data.icon} ${data.name}</h3>
+                <p><strong>Suku:</strong></p>
+                <div class="suku-list">${data.suku.map(s => `<span class="suku-tag">${s}</span>`).join('')}</div>
+                <div class="culture-info">
+                    <p>🏠 <span>Rumah:</span> ${data.rumahAdat}</p>
+                    <p>💃 <span>Tarian:</span> ${data.tarianKhas}</p>
+                    <p>🍜 <span>Makanan:</span> ${data.makananKhas}</p>
                 </div>
-            `).join('');
+            `;
+            document.getElementById('island-info').classList.add('active');
+            updateStats();
+            
+            speak(`${data.name}. Suku: ${data.suku.join(', ')}. Rumah adat: ${data.rumahAdat}.`);
+            
+            if (gameState.exploredIslands.size === 6) setTimeout(() => showResult(), 3000);
         }
 
-        function delRec(id) {
-            if (!confirm('Hapus rekaman ini?')) return;
-            recs = recs.filter(r => r.id !== id);
-            localStorage.setItem('r6a', JSON.stringify(recs));
-            renderRecs();
-            toast('Rekaman dihapus', 'success');
+        // =====================================================
+        // PUZZLE GAME
+        // =====================================================
+        let currentPuzzle = 0, currentGuess = [], usedPuzzles = [], wrongGuesses = [];
+
+        function loadPuzzleGame() {
+            let available = puzzleWords.filter((_, i) => !usedPuzzles.includes(i));
+            if (available.length === 0) { usedPuzzles = []; available = puzzleWords; }
+            
+            currentPuzzle = puzzleWords.indexOf(available[Math.floor(Math.random() * available.length)]);
+            usedPuzzles.push(currentPuzzle);
+            currentGuess = [];
+            wrongGuesses = [];
+            renderPuzzle();
+            
+            const p = puzzleWords[currentPuzzle];
+            speak(`Puzzle ${gameState.puzzlesSolved + 1}. ${p.clue}. ${p.hint}`);
         }
 
-        // TOAST
-        function toast(msg, type = 'info') {
-            const t = document.getElementById('toast');
-            t.textContent = msg;
-            t.className = `toast ${type} show`;
-            setTimeout(() => t.classList.remove('show'), 2500);
+        function renderPuzzle() {
+            const p = puzzleWords[currentPuzzle];
+            const allGuesses = [...currentGuess.filter(g => g), ...wrongGuesses];
+            
+            document.getElementById('puzzle-content').innerHTML = `
+                <p style="color: #7f8c8d;">Puzzle ${gameState.puzzlesSolved + 1}/3</p>
+                <div class="puzzle-clue">${p.clue}</div>
+                <p class="puzzle-hint">💡 ${p.hint}</p>
+                <div class="puzzle-word">${p.word.split('').map((l, i) => `<div class="letter-box ${currentGuess[i] ? (currentGuess[i] === l ? 'correct' : 'filled') : ''}">${currentGuess[i] || ''}</div>`).join('')}</div>
+                <div class="letter-keyboard">${'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(l => `<button class="key-btn" onclick="guessLetter('${l}')" ${allGuesses.includes(l) ? 'disabled' : ''}>${l}</button>`).join('')}</div>
+                <div id="puzzle-feedback"></div>
+            `;
         }
+
+        function guessLetter(letter) {
+            const p = puzzleWords[currentPuzzle];
+            
+            if (p.word.includes(letter)) {
+                p.word.split('').forEach((c, i) => { if (c === letter) currentGuess[i] = letter; });
+                addScore(5);
+                document.getElementById('puzzle-feedback').innerHTML = `<div class="feedback success">✅ Huruf "${letter}" ada!</div>`;
+                speak(`Benar! Huruf ${letter} ada.`);
+            } else {
+                wrongGuesses.push(letter);
+                document.getElementById('puzzle-feedback').innerHTML = `<div class="feedback error">❌ Huruf "${letter}" tidak ada!</div>`;
+                speak(`Maaf, huruf ${letter} tidak ada.`);
+            }
+            
+            renderPuzzle();
+            
+            if (currentGuess.filter((g, i) => g === p.word[i]).length === p.word.length) {
+                gameState.puzzlesSolved++;
+                gameState.correctAnswers++;
+                addScore(20);
+                gameState.gems += 3;
+                speak(`${getRandomAppreciation('correct')} Kata: ${p.word}.`);
+                setTimeout(() => gameState.puzzlesSolved >= 3 ? showResult() : loadPuzzleGame(), 2500);
+            }
+            
+            updateStats();
+        }
+
+        // =====================================================
+        // SAVE TO GOOGLE SHEETS
+        // =====================================================
+        async function saveToGoogleSheets(data) {
+            const indicator = document.getElementById('saving-indicator');
+            const text = document.getElementById('saving-text');
+            document.getElementById('menu-btn').disabled = true;
+            document.getElementById('replay-btn').disabled = true;
+            
+            indicator.classList.add('active');
+            indicator.classList.remove('success', 'error');
+            text.textContent = 'Menyimpan skor...';
+            
+            try {
+                await fetch(GOOGLE_SHEETS_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+                indicator.classList.add('success');
+                text.innerHTML = '✅ Skor tersimpan!';
+            } catch (error) {
+                indicator.classList.add('error');
+                text.innerHTML = '❌ Gagal menyimpan.';
+            }
+            
+            document.getElementById('menu-btn').disabled = false;
+            document.getElementById('replay-btn').disabled = false;
+        }
+
+        // =====================================================
+        // SHOW RESULT
+        // =====================================================
+        function showResult() {
+            const duration = stopTimer();
+            const pct = gameState.totalQuestions > 0 ? Math.round((gameState.correctAnswers / gameState.totalQuestions) * 100) : 100;
+            
+            const stars = pct >= 80 ? '⭐⭐⭐' : pct >= 50 ? '⭐⭐' : '⭐';
+            const icon = pct >= 50 ? '🎉' : '😢';
+            const title = pct >= 80 ? 'Luar Biasa!' : pct >= 50 ? 'Bagus!' : 'Terus Belajar!';
+            const message = pct >= 80 ? 'Kamu penjelajah Nusantara sejati!' : pct >= 50 ? 'Terus tingkatkan!' : 'Jangan menyerah!';
+            
+            document.getElementById('result-icon').textContent = icon;
+            document.getElementById('result-title').textContent = title;
+            document.getElementById('result-score').textContent = gameState.score;
+            document.getElementById('result-stars').textContent = stars;
+            document.getElementById('result-message').textContent = message;
+            document.getElementById('random-fact').textContent = randomFacts[Math.floor(Math.random() * randomFacts.length)];
+            
+            document.getElementById('result-nama').textContent = gameState.playerName;
+            document.getElementById('result-absen').textContent = gameState.playerAbsen;
+            document.getElementById('result-game').textContent = getGameName(gameState.currentGame);
+            document.getElementById('result-benar').textContent = `${gameState.correctAnswers}/${gameState.totalQuestions}`;
+            document.getElementById('result-durasi').textContent = formatTime(duration);
+            
+            document.getElementById('replay-btn').onclick = () => startGame(gameState.currentGame);
+            document.getElementById('saving-indicator').classList.remove('active', 'success', 'error');
+            
+            showScreen('result-screen');
+            speak(`${title} Skormu ${gameState.score} poin. Selamat!`);
+            
+            saveToGoogleSheets({ nama: gameState.playerName, noAbsen: gameState.playerAbsen, jenisGame: getGameName(gameState.currentGame), skor: gameState.score, level: gameState.level, permata: gameState.gems, jawabanBenar: gameState.correctAnswers, totalSoal: gameState.totalQuestions, durasi: duration });
+        }
+
+        // Initialize
+        checkConnection();
+        setInterval(checkConnection, 30000);
+        updateStats();
     </script>
 </body>
 </html>
